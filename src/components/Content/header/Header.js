@@ -11,9 +11,9 @@ class Header extends React.Component {
     }
 
     scroll () {
-        if (pageYOffset > 70) {
+        if (pageYOffset > 0) {
             document.querySelector('header').classList.add('header--mini');
-        } else if (pageYOffset < 70) {
+        } else if (pageYOffset <= 100) {
             document.querySelector('header').classList.remove('header--mini');
         }
     }

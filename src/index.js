@@ -62,49 +62,6 @@ $(document).ready(function() {
     });
 });
 
-const map = L.map('map', {
-    center: [46.367920, 48.066326],
-    zoom: 13,
-    scrollWheelZoom: false
-});
-
-const myIcon = L.icon({
-    iconUrl: 'img/icon.png',
-    iconSize: [60, 60],
-});
-
-L.marker([46.400367, 48.091495], {icon: myIcon}).addTo(map).bindTooltip('Жилая, 1');
-L.marker([46.355315, 48.077743], {icon: myIcon}).addTo(map).bindTooltip('Куликова 50в');
-L.marker([46.333398, 48.012269], {icon: myIcon}).addTo(map).bindTooltip('Богдана Хмельницкого, 10а');
-
-L.tileLayer.provider('Jawg.Dark', {
-    accessToken: 'c61oqWrV1RRTACkEr2NzXh4veCu7O4f9Ue2fru1eAikIn0EDpOi2CECI8dERQMBQ'
-}).addTo(map);
-
-
-$('a.scroll-to').on('click', function(e){
-    e.preventDefault();
-    const anchor = $(this).attr('href');
-    $('html, body').stop().animate({
-        scrollTop: $(anchor).offset().top
-    }, 800);
-    const elements = document.querySelectorAll('.navigation__link');
-
-    if (elements) {
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].classList.remove('navigation__link--active');
-        }
-    }
-    $(this).addClass('navigation__link--active');
-});
-
-// window.addEventListener('scroll', function() {
-//     if (pageYOffset > 70) {
-//         document.querySelector('header').classList.add('header--mini');
-//     } else if (pageYOffset < 70) {
-//         document.querySelector('header').classList.remove('header--mini');
-//     }
-// });
 
 const modal = document.querySelector('.modal');
 const closeModal = modal.querySelector('.modal__close');
@@ -141,6 +98,31 @@ closeModal.addEventListener('click', (evt) => {
     modal.classList.add('modal--close');
 });
 
+
+modalSubmit.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    modalSubmit.innerHTML = typeForm === 'delivery' ? '<p class="modal__title">Ваша заявка принята!</p>' : '<p class="modal__title">Ваш отзыв получен!</p>';
+});
+
+const map = L.map('map', {
+    center: [46.367920, 48.066326],
+    zoom: 13,
+    scrollWheelZoom: false
+});
+
+const myIcon = L.icon({
+    iconUrl: 'img/icon.png',
+    iconSize: [60, 60],
+});
+
+L.marker([46.400367, 48.091495], {icon: myIcon}).addTo(map).bindTooltip('Жилая, 1');
+L.marker([46.355315, 48.077743], {icon: myIcon}).addTo(map).bindTooltip('Куликова 50в');
+L.marker([46.333398, 48.012269], {icon: myIcon}).addTo(map).bindTooltip('Богдана Хмельницкого, 10а');
+
+L.tileLayer.provider('Jawg.Dark', {
+    accessToken: 'c61oqWrV1RRTACkEr2NzXh4veCu7O4f9Ue2fru1eAikIn0EDpOi2CECI8dERQMBQ'
+}).addTo(map);
+
 deliveryBtn.addEventListener('click', (evt) => {
     evt.preventDefault();
     modalSubmit.innerHTML = modalTemplate();
@@ -155,7 +137,18 @@ reviewsBtn.addEventListener('click', (evt) => {
     typeForm = 'review';
 });
 
-modalSubmit.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-    modalSubmit.innerHTML = typeForm === 'delivery' ? '<p class="modal__title">Ваша заявка принята!</p>' : '<p class="modal__title">Ваш отзыв получен!</p>';
+$('a.scroll-to').on('click', function(e){
+    e.preventDefault();
+    const anchor = $(this).attr('href');
+    $('html, body').stop().animate({
+        scrollTop: $(anchor).offset().top
+    }, 800);
+    const elements = document.querySelectorAll('.navigation__link');
+
+    if (elements) {
+        for (let i = 0; i < elements.length; i++) {
+            elements[i].classList.remove('navigation__link--active');
+        }
+    }
+    $(this).addClass('navigation__link--active');
 });

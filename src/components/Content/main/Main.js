@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Banner from './main-content/Banner';
 import Menu from './main-content/Menu';
 import Adventage from './main-content/Advantage';
@@ -8,12 +10,17 @@ import Reviews from './main-content/Reviews';
 import Contacts from './main-content/Contacts';
 
 
+
 class Main extends React.Component {
+    constructor (props) {
+        super(props);
+    }
     render () {
+        const {changeContent} = this.props;
         return (
             <main>
                 <Banner/>
-                <Menu />
+                <Menu {...{change: changeContent}}/>
                 <Adventage />
                 <Delivery />
                 <Gallegy />
@@ -24,4 +31,9 @@ class Main extends React.Component {
     }
 }
 
+Main.propTypes = {
+    changeContent: PropTypes.func
+};
+
+         
 export default Main;

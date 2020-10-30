@@ -1,8 +1,18 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 class Menu extends React.Component {
+    constructor(props) {
+        super(props);
+        this.openMenuList = this.openMenuList.bind(this);
+    }
+    openMenuList () {
+        const {change} = this.props;
+        change('Menu list');
+    }
+
     render () {
+       
         return (
             <section className="menu" id="menu">
                 <div className="menu__wrapper">
@@ -11,7 +21,7 @@ class Menu extends React.Component {
                         <p className="menu__text">
             Талантливые повара приготовят массу необычных блюд. А&nbsp;фирменная подача блюд покорит красотой самых искушенных ценителей.
                         </p>
-                        <a className="menu__btn btn" href="">Посмотреть меню</a>
+                        <a className="menu__btn btn" onClick={this.openMenuList}>Посмотреть меню</a>
                     </div>
                     <div className="menu__back">
                         <div className="menu__list menu__carousel popup-gallery owl-carousel">
@@ -46,5 +56,9 @@ class Menu extends React.Component {
         );
     }
 }
+
+Menu.propTypes = {
+    change: PropTypes.func
+};
 
 export default Menu;

@@ -1,0 +1,136 @@
+.additional__menu__list {
+  display: flex;
+  flex-grow: 1;
+  background-color: rgb(221, 218, 218);
+  .additional__menu__navigation {
+    background-color: red;
+    width: 400px;
+
+    .additional__menu__navigation__header {
+      float: right;
+      position: sticky;
+      white-space: nowrap;
+      top: 40px;
+      margin-right: 20px;
+      color: white;
+      text-transform: uppercase;
+      padding-top: 25px;
+    }
+
+    .additional__menu__list__items {
+      float: right;
+      position: sticky;
+      top: 110px;
+      margin-right: 20px;
+      color: white;
+      list-style-type: none;
+      line-height: 1.5;
+    }
+  }
+}
+
+
+
+.additional__menu__list_item {
+  padding: 5px;
+  width: 170px;
+  padding-left: 10px;
+  overflow: hidden;
+}
+
+.additional__menu__list_item:hover {
+  color: red;
+  background-color: white;
+  clip-path: polygon(0% 0%, 94% 0, 100% 50%, 94% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0% 0%, 94% 0, 100% 50%, 94% 100%, 0% 100%);
+  cursor: pointer;
+}
+
+.additional__menu__black__ground {
+  background-color: black;
+}
+.additional__menu__container {
+  display: flex;
+  flex-direction: column;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.body,
+#root {
+  height: 100%;
+}
+
+
+.additional__menu__grid {
+  width: 70%;
+  margin-top: 15px;
+  margin-left: 30px;
+  margin-bottom: 40px;
+
+  .additional__menu__grid__header {
+    color: black;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-left: 15px;
+    border-left: 8px solid red;
+  }
+
+  .additional__menu__grid__items {
+    display: grid;
+    padding-top: 50px;
+    grid-template-columns: repeat(3, 280px);
+    grid-template-rows: 500px repeat(auto-fill, 500px);
+    grid-gap: 20px;
+  }
+}
+
+.additional__menu__grid__box:hover {
+  -webkit-box-shadow: -2px 1px 13px -1px rgba(50, 50, 50, 0.58);
+  -moz-box-shadow:    -2px 1px 13px -1px rgba(50, 50, 50, 0.58);
+  box-shadow:         -2px 1px 13px -1px rgba(50, 50, 50, 0.58);
+}
+
+.additional__menu__grid__box {
+  width: 280px;
+  background-color: white;
+  
+
+  .additional__menu__grid__container {
+    padding: 30px;
+    height: 66%;
+    position: relative;
+
+    .additional__menu__grid__btn {
+      position: absolute;
+      width: 220px;
+      bottom: 0;
+    }
+    .additional__menu__grid__name{
+      font-weight: bold;
+      font-size: 20px;
+    }
+    .additional__menu__grid__description {
+      color: rgb(158, 152, 152);
+    }
+    .additional__menu__grid__description__dose {
+      position: absolute;
+      bottom: 130px;
+    }
+  }
+}
+
+.additional__menu__grid__btn:hover {
+  cursor: pointer;
+  background-color: red;
+  background-image: none ;
+  -webkit-box-shadow: -7px 5px 20px -1px rgba(50, 50, 50, 0.75);
+ -moz-box-shadow:    -7px 5px 20px -1px rgba(50, 50, 50, 0.75);
+  box-shadow:         -7px 5px 20px -1px rgba(50, 50, 50, 0.75);
+}
+
+
+
