@@ -13,7 +13,6 @@ class MenuList extends React.Component {
         super(props);
         this.state = DEFAULT_STATE;
         this.changeProductList = this.changeProductList.bind(this);
-        this.showProductComponent = this.showProductComponent.bind(this);
     }
 
     componentDidMount() {
@@ -21,6 +20,18 @@ class MenuList extends React.Component {
         const body = document.querySelector('.body');
         header.classList.add('additional__menu__black__ground');
         body.classList.add('additional__menu__container');
+
+        const mobileMenu = document.querySelector('.additional__menu__list');
+
+        mobileMenu.addEventListener('swiped-right', function(e) {
+            document.querySelector('.additional__menu__navigation').classList.add('additional__menu__swipe_left');
+            document.querySelector('.additional__menu__grid').classList.add('additional__menu__display_none');
+        });
+
+        mobileMenu.addEventListener('click', function () {
+            document.querySelector('.additional__menu__navigation').classList.remove('additional__menu__swipe_left');
+            document.querySelector('.additional__menu__grid').classList.remove('additional__menu__display_none');
+        });
     }
 
     componentWillUnmount() {
@@ -30,28 +41,21 @@ class MenuList extends React.Component {
         body.classList.remove('additional__menu__container');
     }
 
+
     async changeProductList (e) {
         if (e.target.hasAttribute('index')) {
             window.scrollTo(pageXOffset, 0);
             const index = Number(e.target.getAttribute('index'));
             await this.setState({index: index}, this.setState({key: Math.random()}));
-
         }
     }
 
-
-    showProductComponent (index) {
-        return <ProductOfMenu {...productsArray[index]} />;
-    }
-
-
     render () {
-        const {showNow}= this.state;
-        const {changeProductList, showProductComponent} = this;
+        const {changeProductList} = this;
         const {index} = this.state;
         
         return (
-            <main className="additional__menu__list">
+            <main data-swipe-threshold="20" data-swipe-timeout="500" data-swipe-ignore="false" className="additional__menu__list">
                 <nav className="additional__menu__navigation">
                     <h1 className="additional__menu__navigation__header">Наше Меню</h1>
                     <ul onClick={changeProductList} className="additional__menu__list__items">

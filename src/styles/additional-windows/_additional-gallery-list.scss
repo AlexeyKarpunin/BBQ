@@ -1,0 +1,36 @@
+.additional__gallery__header {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.additional__gallery__header h2 {
+  text-transform: uppercase;
+}
+
+.additional__gallery__header div {
+  margin: 0 auto;
+  width: 50px;
+  border-bottom: 4px solid red;
+}
+
+.additional__gallery__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 280px);
+  grid-template-rows: 200px repeat(auto-fill, 200px);
+  grid-gap: 20px;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+  .additional__gallery__grid {
+    grid-template-columns: repeat(2, 280px);
+  }
+}
+
+@media (max-width: 590px) {
+  .additional__gallery__grid {
+    grid-template-columns: repeat(1, 280px);
+  }
+}

@@ -1,10 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.js';
+
 import './styles/main.scss';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from 'react-router-dom';
 
+import Main from './components/Content/main/Main';
+import MenuList from './components/Content/main/additional-windows/MenuList';
+import GalleryList from './components/Content/main/additional-windows/GalleryList.js';
+
+ReactDOM.render(<Router>
+    <App>
+        <Switch>
+            <Route exact path='/' component={Main} /> 
+            <Route path='/menu' component={MenuList} />
+            <Route path='/gallery' component={GalleryList}/>
+        </Switch>
+    </App>
+</Router> , document.getElementById('root'));
+
+window.addEventListener('popstate',function() {
+    window.location.href='/';
+});
 
 const menu = document.querySelector('.header__navigation');
 const menuBtn = document.querySelector('.header__nav-btn');

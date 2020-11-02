@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Banner from './main-content/Banner';
 import Menu from './main-content/Menu';
@@ -10,30 +9,36 @@ import Reviews from './main-content/Reviews';
 import Contacts from './main-content/Contacts';
 
 
-
 class Main extends React.Component {
     constructor (props) {
         super(props);
     }
-    render () {
-        const {changeContent} = this.props;
+
+    componentDidMount() {
+        // window.location.href = '/';
+    }
+    
+    componentWillUnmount() {
+        clearTimeout(this.reloderID);
+    }
+    
+    tick() {
+       
+    }
+
+    render () {  
         return (
             <main>
-                <Banner/>
-                <Menu {...{change: changeContent}}/>
+                <Banner />
+                <Menu />
                 <Adventage />
                 <Delivery />
                 <Gallegy />
                 <Reviews />
                 <Contacts />
-            </main>
+            </main> 
         );
     }
 }
-
-Main.propTypes = {
-    changeContent: PropTypes.func
-};
-
-         
+   
 export default Main;

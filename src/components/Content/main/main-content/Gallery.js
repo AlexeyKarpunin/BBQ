@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Gallery extends React.Component {
+
+
     render () {
         return (
             <section className="gallery" id="gallery">
@@ -25,7 +28,7 @@ class Gallery extends React.Component {
                         <img src='../../../img/gallery6.png' alt=""></img>
                     </li>
                 </ul>
-                <a className="gallery__btn btn" href="">Перейти к галерее</a>
+                <Link to='/gallery' className="gallery__btn btn" href="">Перейти к галерее</Link>
             </section>
         );
     }

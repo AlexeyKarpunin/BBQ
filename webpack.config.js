@@ -8,13 +8,15 @@ module.exports = {
     context: path.resolve(__dirname, 'src'),
     mode: 'development',
     entry: ['@babel/polyfill', './index.js'],
+   
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist')
     },
     devServer: {
         port: 3000,
-        open: true
+        open: true,
+        historyApiFallback: true,
     },
     devtool: 'source-map',
     plugins: [
@@ -80,7 +82,7 @@ module.exports = {
                     loader: 'babel-loader',
                     options: {
                         presets: [
-                            '@babel/preset-env'
+                            '@babel/preset-env', '@babel/preset-react'
                         ]
                     }
                 },

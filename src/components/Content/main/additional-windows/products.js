@@ -215,7 +215,7 @@ const garnirs = {
 };
 
 const salats = {
-    header: 'Гарниры',
+    header: 'Салаты',
     products: [
         {
             imgLink: '../../../../img/advantage3.png',
