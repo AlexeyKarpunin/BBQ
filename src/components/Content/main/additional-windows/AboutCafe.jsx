@@ -1,7 +1,7 @@
 import React from 'react';
-import Delivery from '../main-content/Delivery';
+import Advantage from '../main-content/Advantage.jsx';
 
-class DeliveryWindow extends React.Component {
+class AboutCafe extends React.Component {
 
     componentDidMount() {
         const header = document.querySelector('.header');
@@ -15,8 +15,8 @@ class DeliveryWindow extends React.Component {
     }
 
     render () {
-        return <Delivery />;
+        return <Advantage />;
     }
 }
 
-export default DeliveryWindow;
+export default AboutCafe;

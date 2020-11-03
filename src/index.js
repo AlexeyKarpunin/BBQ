@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App.js';
+import App from './components/App.jsx';
 
 import './styles/main.scss';
 
@@ -10,13 +10,13 @@ import {
     Route,
 } from 'react-router-dom';
 
-import Main from './components/Content/main/Main';
-import MenuList from './components/Content/main/additional-windows/MenuList';
-import GalleryList from './components/Content/main/additional-windows/GalleryList.js';
-import Stoks from './components/Content/main/additional-windows/Stoks';
-import Map from './components/Content/main/additional-windows/Map';
-import AboutCafe from './components/Content/main/additional-windows/AboutCafe';
-import DeliveryWindow from './components/Content/main/additional-windows/DeliveyWindow';
+import Main from './components/Content/main/Main.jsx';
+import MenuList from './components/Content/main/additional-windows/MenuList.jsx';
+import GalleryList from './components/Content/main/additional-windows/GalleryList.jsx';
+import Stoks from './components/Content/main/additional-windows/Stoks.jsx';
+import Map from './components/Content/main/additional-windows/Map.jsx';
+import AboutCafe from './components/Content/main/additional-windows/AboutCafe.jsx';
+import DeliveryWindow from './components/Content/main/additional-windows/DeliveyWindow.jsx';
 
 ReactDOM.render(<BrowserRouter>
     <App>

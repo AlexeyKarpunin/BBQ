@@ -1,5 +1,5 @@
 import React from 'react';
-import ProductOfMenu from './ProductOfMenu';
+import ProductOfMenu from './ProductOfMenu.jsx';
 import productsArray from './products';
 
 const DEFAULT_STATE = {
