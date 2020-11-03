@@ -14,6 +14,10 @@ import {
 import Main from './components/Content/main/Main';
 import MenuList from './components/Content/main/additional-windows/MenuList';
 import GalleryList from './components/Content/main/additional-windows/GalleryList.js';
+import Stoks from './components/Content/main/additional-windows/Stoks';
+import Map from './components/Content/main/additional-windows/Map';
+import AboutCafe from './components/Content/main/additional-windows/AboutCafe';
+import DeliveryWindow from './components/Content/main/additional-windows/DeliveyWindow';
 
 ReactDOM.render(<Router>
     <App>
@@ -21,6 +25,10 @@ ReactDOM.render(<Router>
             <Route exact path='/' component={Main} /> 
             <Route path='/menu' component={MenuList} />
             <Route path='/gallery' component={GalleryList}/>
+            <Route path='/stoks' component={Stoks}/>
+            <Route path='/map' component={Map}/>
+            <Route path='/about-cafe' component={AboutCafe}/>
+            <Route path='/delevery' component={DeliveryWindow}/>
         </Switch>
     </App>
 </Router> , document.getElementById('root'));
@@ -160,18 +168,44 @@ reviewsBtn.addEventListener('click', (evt) => {
     typeForm = 'review';
 });
 
-$('a.scroll-to').on('click', function(e){
-    e.preventDefault();
-    const anchor = $(this).attr('href');
-    $('html, body').stop().animate({
-        scrollTop: $(anchor).offset().top
-    }, 800);
-    const elements = document.querySelectorAll('.navigation__link');
-
-    if (elements) {
-        for (let i = 0; i < elements.length; i++) {
-            elements[i].classList.remove('navigation__link--active');
-        }
+$('a.scroll-to').on('click', function(e) {
+    if (window.location.pathname === '/') {
+        e.preventDefault();
+        const anchor = e.target.getAttribute('data-link');
+        $('html,body').animate({scrollTop:$(anchor).offset().top+'px'},{duration:1E3});
     }
-    $(this).addClass('navigation__link--active');
 });
+
+// $('a.scroll-to').on('click', function(e){
+    
+//     if (window.location.pathname === '/') {
+//         e.preventDefault();
+//         // window.location.pathname =`/${e.target.getAttribute('data-name')}`;
+//         const anchor = $(this).attr('to');
+//         $('html, body').stop().animate({
+//             scrollTop: $(anchor).offset().top
+//         }, 800);
+
+//         const elements = document.querySelectorAll('.navigation__link');
+    
+//         if (elements) {
+//             for (let i = 0; i < elements.length; i++) {
+//                 elements[i].classList.remove('navigation__link--active');
+//             }
+//         }
+//         $(this).addClass('navigation__link--active');
+//     }
+// });
+
+// const hiddenElement = document.getElementById('box');
+// const btn = document.querySelector('.a.scroll-to');
+
+// function handleButtonClick() {
+//     e.preventDefault();
+//     // hiddenElement.scrollIntoView({block: 'center', behavior: 'smooth'});
+//     console.log('i am work')
+// }
+
+// btn.addEventListener('click', handleButtonClick);
+
+

@@ -75,6 +75,7 @@ html, body {
 .additional__menu__grid__header {
   color: black;
   font-weight: bold;
+  white-space: nowrap;
   padding-top: 10px;
   padding-left: 15px;
   border-left: 8px solid red;
@@ -187,3 +188,4 @@ html, body {
     flex-direction: column;
   }
 }
+

@@ -14,18 +14,6 @@ class Main extends React.Component {
         super(props);
     }
 
-    componentDidMount() {
-        // window.location.href = '/';
-    }
-    
-    componentWillUnmount() {
-        clearTimeout(this.reloderID);
-    }
-    
-    tick() {
-       
-    }
-
     render () {  
         return (
             <main>

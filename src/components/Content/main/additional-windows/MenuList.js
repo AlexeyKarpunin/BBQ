@@ -23,15 +23,9 @@ class MenuList extends React.Component {
 
         const mobileMenu = document.querySelector('.additional__menu__list');
 
-        mobileMenu.addEventListener('swiped-right', function(e) {
-            document.querySelector('.additional__menu__navigation').classList.add('additional__menu__swipe_left');
-            document.querySelector('.additional__menu__grid').classList.add('additional__menu__display_none');
-        });
+        mobileMenu.addEventListener('swiped-right', this.swipe);
 
-        mobileMenu.addEventListener('click', function () {
-            document.querySelector('.additional__menu__navigation').classList.remove('additional__menu__swipe_left');
-            document.querySelector('.additional__menu__grid').classList.remove('additional__menu__display_none');
-        });
+        mobileMenu.addEventListener('click', this.click);
     }
 
     componentWillUnmount() {
@@ -39,8 +33,21 @@ class MenuList extends React.Component {
         const body = document.querySelector('.body');
         header.classList.remove('additional__menu__black__ground');
         body.classList.remove('additional__menu__container');
+
+        document.removeEventListener('swiped-right', this.swipe);
+        document.removeEventListener('click', this.click);
     }
 
+    swipe() {
+        document.querySelector('.additional__menu__navigation').classList.add('additional__menu__swipe_left');
+        document.querySelector('.additional__menu__grid').classList.add('additional__menu__display_none');
+    }
+
+    click() {
+        document.querySelector('.additional__menu__navigation').classList.remove('additional__menu__swipe_left');
+        document.querySelector('.additional__menu__grid').classList.remove('additional__menu__display_none');
+    }
+    
 
     async changeProductList (e) {
         if (e.target.hasAttribute('index')) {

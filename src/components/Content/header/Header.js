@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {headersDataAtr} from '../../enums';
+
 
 class Header extends React.Component {
 
@@ -20,6 +22,7 @@ class Header extends React.Component {
     }
 
     render () {
+        const {aboutCafe, menu, delivery, galley, map} = headersDataAtr;
         return (
             <header className="header">
                 <div className="header__wrapper">
@@ -29,25 +32,25 @@ class Header extends React.Component {
                     <nav className="header__navigation">
                         <ul className="navigation">
                             <li className="navigation__item">
-                                <a className="navigation__link scroll-to" href="#about">О кафе</a>
+                                <Link to="about-cafe" className="navigation__link scroll-to" data-link='#about' >О кафе</Link>
                             </li>
                             <li className="navigation__item">
-                                <a className="navigation__link scroll-to" href="#menu">Меню</a>
+                                <Link to="menu" className="navigation__link scroll-to" data-link='#menu'>Меню</Link>
                             </li>
                             <li className="navigation__item">
-                                <a className="navigation__link scroll-to" href="">Меню на вынос</a>
+                                <Link className="navigation__link">Меню на вынос</Link>
                             </li>
                             <li className="navigation__item">
-                                <a className="navigation__link scroll-to" href="">Акции</a>
+                                <Link to='/stoks' className="navigation__link">Акции</Link>
                             </li>
                             <li className="navigation__item">
-                                <a className="navigation__link scroll-to" href="#delivery">Доставка</a>
+                                <Link to="delevery" className="navigation__link scroll-to" data-link='#delivery'>Доставка</Link>
                             </li>
                             <li className="navigation__item">
-                                <a className="navigation__link scroll-to" href="#gallery">Галлерея</a>
+                                <Link to="gallery" className="navigation__link scroll-to" data-link='#gallery'>Галлерея</Link>
                             </li>
                             <li className="navigation__item">
-                                <a className="navigation__link scroll-to" href="#map">Посмотреть на карте</a>
+                                <a className="navigation__link scroll-to" href="/map" data-link='#map'>Посмотреть на карте</a>
                             </li>
                         </ul>
                         <div className="header__info">

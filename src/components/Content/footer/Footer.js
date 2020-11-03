@@ -1,26 +1,29 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import {headersDataAtr} from '../../enums';
 
 class Footer extends React.Component {
     render () {
+        const {aboutCafe, menu, delivery, galley, map} = headersDataAtr;
         return (
             <footer className="footer">
                 <div className="footer__wrapper">
                     <img src="../../img/logo.png" alt=""></img>
                     <ul className="navigation navigation--footer">
                         <li className="navigation__item">
-                            <a className="navigation__link" href="">О кафе</a>
+                            <Link to="about-cafe" data-name={aboutCafe} className="navigation__link scroll-to" data-link='#about'>О кафе</Link>
                         </li>
                         <li className="navigation__item">
-                            <a className="navigation__link" href="">Доставка</a>
+                            <Link to="delevery" className="navigation__link scroll-to" data-link='#delivery'>Доставка</Link>
                         </li>
                         <li className="navigation__item">
-                            <a className="navigation__link" href="">Меню</a>
+                            <Link to="menu" className="navigation__link scroll-to" data-link='#menu'>Меню</Link>
                         </li>
                         <li className="navigation__item">
-                            <a className="navigation__link" href="">Галлерея</a>
+                            <Link to="gallery" className="navigation__link scroll-to" data-link='#gallery'>Галлерея</Link>
                         </li>
                         <li className="navigation__item">
-                            <a className="navigation__link" href="">Посмотреть на карте</a>
+                            <a data-name={map} className="navigation__link scroll-to" data-link='#map' href="/map">Посмотреть на карте</a>
                         </li>
                     </ul>
                 </div>
