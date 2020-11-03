@@ -1,10 +1,7 @@
 
 import React from 'react';
 import Header from './Content/header/Header';
-// import Main from './Content/main/Main';
 import Footer from './Content/footer/Footer';
-// import MenuList from './Content/main/additional-windows/MenuList';
-import '../index';
 
 class App extends React.Component {
     constructor (props) {

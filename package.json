@@ -27,8 +27,8 @@
     "eject": "react-scripts eject",
     "build-web-pack": "webpack --mode production",
     "start-web-pack": "webpack-dev-server --mode development",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "predeploy": "yarn run build-web-pack",
+    "deploy": "gh-pages -d dist"
   },
   "eslintConfig": {
     "extends": [

@@ -16,6 +16,7 @@ module.exports = {
     devServer: {
         port: 3000,
         open: true,
+        inline: false,
         historyApiFallback: true,
     },
     devtool: 'source-map',
@@ -91,6 +92,13 @@ module.exports = {
             {
                 test: /\.svg$/,
                 loader: 'svg-sprite-loader'
+            },
+            {
+                test: /\.(js|jsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                } // <--- it was added
             }
         ]
     }

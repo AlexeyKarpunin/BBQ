@@ -5,10 +5,9 @@ import App from './components/App.js';
 import './styles/main.scss';
 
 import {
-    BrowserRouter as Router,
+    BrowserRouter,
     Switch,
     Route,
-    Link
 } from 'react-router-dom';
 
 import Main from './components/Content/main/Main';
@@ -19,7 +18,7 @@ import Map from './components/Content/main/additional-windows/Map';
 import AboutCafe from './components/Content/main/additional-windows/AboutCafe';
 import DeliveryWindow from './components/Content/main/additional-windows/DeliveyWindow';
 
-ReactDOM.render(<Router>
+ReactDOM.render(<BrowserRouter>
     <App>
         <Switch>
             <Route exact path='/' component={Main} /> 
@@ -31,7 +30,7 @@ ReactDOM.render(<Router>
             <Route path='/delevery' component={DeliveryWindow}/>
         </Switch>
     </App>
-</Router> , document.getElementById('root'));
+</BrowserRouter> , document.getElementById('root'));
 
 window.addEventListener('popstate',function() {
     window.location.href='/';
