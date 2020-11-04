@@ -39,7 +39,7 @@ class Header extends React.Component {
                                 <Link to="menu" className="navigation__link scroll-to" data-link='#menu'>Меню</Link>
                             </li>
                             <li className="navigation__item">
-                                <a href="" className="navigation__link">Меню на вынос</a>
+                                <Link to="menuOutSide" className="navigation__link" data-link='#menu-out-side'>Меню на вынос</Link>
                             </li>
                             <li className="navigation__item">
                                 <Link to='/stoks' className="navigation__link" data-link='#stoks'>Акции</Link>

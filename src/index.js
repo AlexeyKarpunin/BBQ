@@ -18,6 +18,7 @@ import Stoks from './components/Content/main/additional-windows/Stoks.jsx';
 import Map from './components/Content/main/additional-windows/Map.jsx';
 import AboutCafe from './components/Content/main/additional-windows/AboutCafe.jsx';
 import DeliveryWindow from './components/Content/main/additional-windows/DeliveyWindow.jsx';
+import MenuOutSide from './components/Content/main/additional-windows/MenuOutSide.jsx';
 
 ReactDOM.render(<BrowserRouter>
     <App>
@@ -29,6 +30,7 @@ ReactDOM.render(<BrowserRouter>
             <Route path='/map' component={Map}/>
             <Route path='/about-cafe' component={AboutCafe}/>
             <Route path='/delevery' component={DeliveryWindow}/>
+            <Route path='/menuOutSide' component={MenuOutSide}/>
         </Switch>
     </App>
 </BrowserRouter> , document.getElementById('root'));
