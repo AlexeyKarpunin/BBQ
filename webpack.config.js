@@ -16,7 +16,6 @@ module.exports = {
     devServer: {
         port: 3000,
         open: true,
-        inline: false,
         historyApiFallback: true,
     },
     devtool: 'source-map',
@@ -38,6 +37,10 @@ module.exports = {
                 {
                     from: 'css',
                     to: './css',
+                },
+                {
+                    from: 'components',
+                    to: './jsx',
                 },
             ]
         }),

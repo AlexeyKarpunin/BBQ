@@ -8,12 +8,8 @@ import Gallegy from './main-content/Gallery.jsx';
 import Reviews from './main-content/Reviews.jsx';
 import Contacts from './main-content/Contacts.jsx';
 
-
 class Main extends React.Component {
-    constructor (props) {
-        super(props);
-    }
-
+   
     render () {  
         return (
             <main>

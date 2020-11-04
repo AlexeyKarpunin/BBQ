@@ -21,6 +21,7 @@ class Header extends React.Component {
         }
     }
 
+
     render () {
         const {aboutCafe, menu, delivery, galley, map} = headersDataAtr;
         return (
@@ -38,10 +39,10 @@ class Header extends React.Component {
                                 <Link to="menu" className="navigation__link scroll-to" data-link='#menu'>Меню</Link>
                             </li>
                             <li className="navigation__item">
-                                <Link className="navigation__link">Меню на вынос</Link>
+                                <a href="" className="navigation__link">Меню на вынос</a>
                             </li>
                             <li className="navigation__item">
-                                <Link to='/stoks' className="navigation__link">Акции</Link>
+                                <Link to='/stoks' className="navigation__link" data-link='#stoks'>Акции</Link>
                             </li>
                             <li className="navigation__item">
                                 <Link to="delevery" className="navigation__link scroll-to" data-link='#delivery'>Доставка</Link>

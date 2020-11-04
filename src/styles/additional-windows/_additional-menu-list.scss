@@ -5,7 +5,7 @@
 }
 
 .additional__menu__navigation {
-  background-color: red;
+  background-image: url("../img/back_ground_menu_list.png");
   width: 400px;
 }
 
@@ -170,7 +170,7 @@ html, body {
   position: static;
   white-space: nowrap;
   margin-left: 62px;
-  font-size: 20px;
+  font-size: 30px;
   }
 
   .additional__menu__list__items {
@@ -186,6 +186,8 @@ html, body {
   .additional__menu__navigation {
     display: flex;
     flex-direction: column;
+    height: 650px;
+    font-size: 20px;
   }
 }
 

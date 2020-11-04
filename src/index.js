@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App.jsx';
 
+
 import './styles/main.scss';
 
 import {
@@ -39,11 +40,13 @@ window.addEventListener('popstate',function() {
 const menu = document.querySelector('.header__navigation');
 const menuBtn = document.querySelector('.header__nav-btn');
 const btnSvg = document.querySelector('.ham1');
+const mobileMap = document.querySelector('.map');
 
 menuBtn.addEventListener('click', function () {
     menu.classList.toggle('header__navigation--show');
     menuBtn.classList.toggle('header__nav-btn--active');
     btnSvg.classList.toggle('active');
+    if (mobileMap) mobileMap.classList.toggle('z_index--non--active');
 });
 
 $(document).ready(function(){
@@ -97,6 +100,7 @@ const modal = document.querySelector('.modal');
 const closeModal = modal.querySelector('.modal__close');
 const deliveryBtn = document.querySelector('.delivery__btn');
 const reviewsBtn = document.querySelector('.reviews__btn');
+const advantageBtn = document.querySelector('.advantage__btn');
 const modalSubmit = modal.querySelector('.modal__form');
 let typeForm;
 
@@ -106,6 +110,15 @@ const modalTemplate = () => {
      <input class="modal__input" type="text" required placeholder="Ваше имя" minlength="3">
      <input class="modal__input" type="tel" required placeholder="Ваш номер">
      <button class="modal__btn btn" type="submit">Отправить</button>`
+    );
+};
+
+const modalAdvantageTemple = () => {
+    return (
+        `<p>
+            <p class="modal__title">Тут будет схема брони или что типо того</p>
+            <button class="modal__btn btn" type="submit">Забронировать</button>
+        </p>`
     );
 };
 
@@ -128,10 +141,49 @@ closeModal.addEventListener('click', (evt) => {
     modal.classList.add('modal--close');
 });
 
+if (advantageBtn) {
+    advantageBtn.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        modalSubmit.innerHTML = modalAdvantageTemple();
+        modal.classList.remove('modal--close');
+        typeForm = 'to book';
+    });
+}
+
+if (deliveryBtn) {
+    deliveryBtn.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        modalSubmit.innerHTML = modalTemplate();
+        modal.classList.remove('modal--close');
+        typeForm = 'delivery';
+    });
+}
+
+if (reviewsBtn) {
+    reviewsBtn.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        modalSubmit.innerHTML = modalReviewsTemplate();
+        modal.classList.remove('modal--close');
+        typeForm = 'review';
+    });
+}
 
 modalSubmit.addEventListener('submit', (evt) => {
     evt.preventDefault();
-    modalSubmit.innerHTML = typeForm === 'delivery' ? '<p class="modal__title">Ваша заявка принята!</p>' : '<p class="modal__title">Ваш отзыв получен!</p>';
+    switch(typeForm) {
+    case 'delivery':
+        modalSubmit.innerHTML = '<p class="modal__title">Ваша заявка принята!</p>';
+        break;
+    case 'review':
+        modalSubmit.innerHTML = '<p class="modal__title">Ваш отзыв получен!</p>';
+        break;
+    case 'to book':
+        modalSubmit.innerHTML = '<p class="modal__title">Стол забронирован!</p>';
+        break;
+    default:
+        modalSubmit.innerHTML = '<p class="modal__title">Мы ценим вас!!!</p>';
+        break;
+    }
 });
 
 const map = L.map('map', {
@@ -153,20 +205,6 @@ L.tileLayer.provider('Jawg.Dark', {
     accessToken: 'c61oqWrV1RRTACkEr2NzXh4veCu7O4f9Ue2fru1eAikIn0EDpOi2CECI8dERQMBQ'
 }).addTo(map);
 
-deliveryBtn.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    modalSubmit.innerHTML = modalTemplate();
-    modal.classList.remove('modal--close');
-    typeForm = 'delivery';
-});
-
-reviewsBtn.addEventListener('click', (evt) => {
-    evt.preventDefault();
-    modalSubmit.innerHTML = modalReviewsTemplate();
-    modal.classList.remove('modal--close');
-    typeForm = 'review';
-});
-
 $('a.scroll-to').on('click', function(e) {
     if (window.location.pathname === '/') {
         e.preventDefault();
@@ -175,36 +213,10 @@ $('a.scroll-to').on('click', function(e) {
     }
 });
 
-// $('a.scroll-to').on('click', function(e){
-    
-//     if (window.location.pathname === '/') {
-//         e.preventDefault();
-//         // window.location.pathname =`/${e.target.getAttribute('data-name')}`;
-//         const anchor = $(this).attr('to');
-//         $('html, body').stop().animate({
-//             scrollTop: $(anchor).offset().top
-//         }, 800);
+const mobileLinkMenu = document.querySelector('.header__navigation');
 
-//         const elements = document.querySelectorAll('.navigation__link');
-    
-//         if (elements) {
-//             for (let i = 0; i < elements.length; i++) {
-//                 elements[i].classList.remove('navigation__link--active');
-//             }
-//         }
-//         $(this).addClass('navigation__link--active');
-//     }
-// });
-
-// const hiddenElement = document.getElementById('box');
-// const btn = document.querySelector('.a.scroll-to');
-
-// function handleButtonClick() {
-//     e.preventDefault();
-//     // hiddenElement.scrollIntoView({block: 'center', behavior: 'smooth'});
-//     console.log('i am work')
-// }
-
-// btn.addEventListener('click', handleButtonClick);
-
-
+mobileLinkMenu.addEventListener('click', () => {
+    menu.classList.remove('header__navigation--show');
+    menuBtn.classList.remove('header__nav-btn--active');
+    btnSvg.classList.remove('active');
+});

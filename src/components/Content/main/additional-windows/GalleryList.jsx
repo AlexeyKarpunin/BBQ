@@ -5,6 +5,9 @@ class GalleryList extends React.Component {
         window.scrollTo(pageXOffset, 0);
         const header = document.querySelector('.header');
         const body = document.querySelector('.body');
+        const navItemsArr = Array.from(document.querySelectorAll('.navigation__link'));
+        
+        this.activationLink(navItemsArr);
         header.classList.add('additional__menu__black__ground');
         body.classList.add('additional__menu__container');
     }
@@ -12,8 +15,27 @@ class GalleryList extends React.Component {
     componentWillUnmount() {
         const header = document.querySelector('.header');
         const body = document.querySelector('.body');
+        const navItemsArr = Array.from(document.querySelectorAll('.navigation__link'));
+
+        this.disableLink(navItemsArr);
         header.classList.remove('additional__menu__black__ground');
         body.classList.remove('additional__menu__container');
+    }
+
+    activationLink(arr) {
+        arr.forEach((navItem) => {
+            if (navItem.getAttribute('data-link') === '#gallery') {
+                navItem.classList.add('navigation__link--active');
+            }
+        });
+    }
+
+    disableLink (arr) {
+        arr.forEach((navItem) => {
+            if (navItem.getAttribute('data-link') === '#gallery') {
+                navItem.classList.remove('navigation__link--active');
+            }
+        });
     }
     render () {
         return (

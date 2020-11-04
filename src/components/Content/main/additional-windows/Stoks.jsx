@@ -1,6 +1,35 @@
 import React from 'react';
 
 class Stoks extends React.Component {
+
+    componentDidMount() {
+        const navItemsArr = Array.from(document.querySelectorAll('.navigation__link'));
+        
+        this.activationLink(navItemsArr);
+    }
+
+    componentWillUnmount() {
+        const navItemsArr = Array.from(document.querySelectorAll('.navigation__link'));
+
+        this.disableLink(navItemsArr);
+    }
+
+    activationLink(arr) {
+        arr.forEach((navItem) => {
+            if (navItem.getAttribute('data-link') === '#stoks') {
+                navItem.classList.add('navigation__link--active');
+            }
+        });
+    }
+
+    disableLink (arr) {
+        arr.forEach((navItem) => {
+            if (navItem.getAttribute('data-link') === '#stoks') {
+                navItem.classList.remove('navigation__link--active');
+            }
+        });
+    }
+
     render () {
         const imgStyle = {
             'minHeight': '250px',

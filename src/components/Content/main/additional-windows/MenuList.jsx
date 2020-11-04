@@ -18,10 +18,13 @@ class MenuList extends React.Component {
     componentDidMount() {
         const header = document.querySelector('.header');
         const body = document.querySelector('.body');
+        const mobileMenu = document.querySelector('.additional__menu__list');
+        const navItemsArr = Array.from(document.querySelectorAll('.navigation__link'));
+        
+        this.activationLink(navItemsArr);
+
         header.classList.add('additional__menu__black__ground');
         body.classList.add('additional__menu__container');
-
-        const mobileMenu = document.querySelector('.additional__menu__list');
 
         mobileMenu.addEventListener('swiped-right', this.swipe);
 
@@ -31,6 +34,10 @@ class MenuList extends React.Component {
     componentWillUnmount() {
         const header = document.querySelector('.header');
         const body = document.querySelector('.body');
+        const navItemsArr = Array.from(document.querySelectorAll('.navigation__link'));
+
+        this.disableLink(navItemsArr);
+
         header.classList.remove('additional__menu__black__ground');
         body.classList.remove('additional__menu__container');
 
@@ -38,7 +45,24 @@ class MenuList extends React.Component {
         document.removeEventListener('click', this.click);
     }
 
+    activationLink(arr) {
+        arr.forEach((navItem) => {
+            if (navItem.getAttribute('data-link') === '#menu') {
+                navItem.classList.add('navigation__link--active');
+            }
+        });
+    }
+
+    disableLink (arr) {
+        arr.forEach((navItem) => {
+            if (navItem.getAttribute('data-link') === '#menu') {
+                navItem.classList.remove('navigation__link--active');
+            }
+        });
+    }
+
     swipe() {
+        window.scrollTo(pageXOffset, 0);
         document.querySelector('.additional__menu__navigation').classList.add('additional__menu__swipe_left');
         document.querySelector('.additional__menu__grid').classList.add('additional__menu__display_none');
     }
