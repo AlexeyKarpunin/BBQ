@@ -20,7 +20,7 @@ class Stoks extends React.Component {
 
     activationLink(arr) {
         arr.forEach((navItem) => {
-            if (navItem.getAttribute('data-link') === '#about') {
+            if (navItem.getAttribute('data-link') === '#stoks') {
                 navItem.classList.add('navigation__link--active');
             }
         });
@@ -28,7 +28,7 @@ class Stoks extends React.Component {
 
     disableLink (arr) {
         arr.forEach((navItem) => {
-            if (navItem.getAttribute('data-link') === '#about') {
+            if (navItem.getAttribute('data-link') === '#stoks') {
                 navItem.classList.remove('navigation__link--active');
             }
         });

@@ -20,6 +20,14 @@ class Contacts extends React.Component {
                                 <p className="contacts__address">Богдана Хмельницкого, 10а</p>
                                 <a className="contacts__phone" href="tel:88512758758">+7 (8512) 758 - 758</a>
                             </li>
+                            <li className="contacts__item">
+                                <p className="contacts__address">Татищева, 43й</p>
+                                <a className="contacts__phone" href="tel:88512758758">+7 (8512) 758 - 758</a>
+                            </li>
+                            <li className="contacts__item">
+                                <p className="contacts__address">Астраханская 51и/1</p>
+                                <a className="contacts__phone" href="tel:88512758758">+7 (8512) 758 - 758</a>
+                            </li>
                         </ul>
                         <div className="contacts__social">
                             <a className="contacts__link" href="">

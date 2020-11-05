@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import {headersDataAtr} from '../../enums';
-
 
 class Header extends React.Component {
 
@@ -23,7 +21,6 @@ class Header extends React.Component {
 
 
     render () {
-        const {aboutCafe, menu, delivery, galley, map} = headersDataAtr;
         return (
             <header className="header">
                 <div className="header__wrapper">
@@ -33,13 +30,13 @@ class Header extends React.Component {
                     <nav className="header__navigation">
                         <ul className="navigation">
                             <li className="navigation__item">
-                                <Link to="about-cafe" className="navigation__link scroll-to" data-link='#about' >О кафе</Link>
-                            </li>
-                            <li className="navigation__item">
-                                <Link to="menu" className="navigation__link scroll-to" data-link='#menu'>Меню</Link>
+                                <a className="navigation__link scroll-to" data-link='#about' href='/' >О кафе</a>
                             </li>
                             <li className="navigation__item">
                                 <Link to="menuOutSide" className="navigation__link" data-link='#menu-out-side'>Меню на вынос</Link>
+                            </li>
+                            <li className="navigation__item">
+                                <Link to="menu" className="navigation__link scroll-to" data-link='#menu'>Меню</Link>
                             </li>
                             <li className="navigation__item">
                                 <Link to='/stoks' className="navigation__link" data-link='#stoks'>Акции</Link>

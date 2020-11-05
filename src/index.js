@@ -190,7 +190,7 @@ modalSubmit.addEventListener('submit', (evt) => {
 
 const map = L.map('map', {
     center: [46.367920, 48.066326],
-    zoom: 13,
+    zoom: 12,
     scrollWheelZoom: false
 });
 
@@ -200,6 +200,8 @@ const myIcon = L.icon({
 });
 
 L.marker([46.400367, 48.091495], {icon: myIcon}).addTo(map).bindTooltip('Жилая, 1');
+L.marker([46.369340, 48.050900], {icon: myIcon}).addTo(map).bindTooltip('Татищева 43а');
+L.marker([46.299018, 48.050145], {icon: myIcon}).addTo(map).bindTooltip('Астраханская 51и/1');
 L.marker([46.355315, 48.077743], {icon: myIcon}).addTo(map).bindTooltip('Куликова 50в');
 L.marker([46.333398, 48.012269], {icon: myIcon}).addTo(map).bindTooltip('Богдана Хмельницкого, 10а');
 
