@@ -17,7 +17,18 @@ class Main extends React.Component {
                 <Menu />
                 <Adventage />
                 <Delivery />
-                <Gallegy />
+                <Gallegy {...{
+                    header: 'Галлерея кафе на улице Татищева 43а',
+                    link:'/galleryTatisheva'
+                }} />
+                <Gallegy {...{
+                    header: 'Галлерея кафе на улице Астраханская 51и/1',
+                    link:'/galleryAstrakhanskay'
+                }} />
+                <Gallegy {...{
+                    header: 'Галлерея кафе на улице Куликкова 50в',
+                    link:'/gallerykulikova'
+                }} />
                 <Reviews />
                 <Contacts />
             </main> 

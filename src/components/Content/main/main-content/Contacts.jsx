@@ -9,16 +9,8 @@ class Contacts extends React.Component {
                         <h2 className="contacts__title">Мы ждем вас в&nbsp;гости!</h2>
                         <ul className="contacts__list">
                             <li className="contacts__item">
-                                <p className="contacts__address">Ул. Жилая, 1</p>
-                                <a className="contacts__phone" href="tel:88512777999">+7 (8512) 777 - 999</a>
-                            </li>
-                            <li className="contacts__item">
                                 <p className="contacts__address">Куликова, 50в</p>
                                 <a className="contacts__phone" href="tel:89275555828">+7 (927) 555 - 5828</a>
-                            </li>
-                            <li className="contacts__item">
-                                <p className="contacts__address">Богдана Хмельницкого, 10а</p>
-                                <a className="contacts__phone" href="tel:88512758758">+7 (8512) 758 - 758</a>
                             </li>
                             <li className="contacts__item">
                                 <p className="contacts__address">Татищева, 43й</p>

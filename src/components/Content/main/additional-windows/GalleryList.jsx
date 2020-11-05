@@ -1,6 +1,14 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class GalleryList extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            picturesLinks: props.pictures,
+        };
+    }
+
     componentDidMount() {
         window.scrollTo(pageXOffset, 0);
         const header = document.querySelector('.header');
@@ -9,7 +17,9 @@ class GalleryList extends React.Component {
         
         this.activationLink(navItemsArr);
         header.classList.add('additional__menu__black__ground');
-        body.classList.add('additional__menu__container');
+        body.classList.add('additional__gallery__container');
+
+        
     }
 
     componentWillUnmount() {
@@ -19,7 +29,7 @@ class GalleryList extends React.Component {
 
         this.disableLink(navItemsArr);
         header.classList.remove('additional__menu__black__ground');
-        body.classList.remove('additional__menu__container');
+        body.classList.remove('additional__gallery__container');
     }
 
     activationLink(arr) {
@@ -37,6 +47,23 @@ class GalleryList extends React.Component {
             }
         });
     }
+
+    modalGelleryImg (e) {
+        const modal = document.querySelector('.modal__Gallery');
+        const modalWindow = document.querySelector('.modal__Gallery__window');
+        modal.innerHTML =
+         `
+         <img style="width: inherit;" className="gallery__modal__img"  src=${e.target.getAttribute('src')}></img>
+         <a onClick={this.closeModal} className="close" class="close"></a>
+        `;
+        modalWindow.classList.remove('--close__gallery');
+    }
+
+    closeModal (e) {
+        const modalWindow = document.querySelector('.modal__Gallery__window');
+        modalWindow.classList.add('--close__gallery');
+    }
+
     render () {
         return (
             <section className="additional__gallery__list">
@@ -45,23 +72,24 @@ class GalleryList extends React.Component {
                     <div></div>
                 </div>
                 <div className="additional__gallery__grid">
-                    <img src='../../../../img/gallery1.png'></img>
-                    <img src='../../../../img/gallery2.png'></img>
-                    <img src='../../../../img/gallery3.png'></img>
-                    <img src='../../../../img/gallery4.png'></img>
-                    <img src='../../../../img/gallery5.png'></img>
-                    <img src='../../../../img/gallery6.png'></img>
-                    <img src='../../../../img/gallery1.png'></img>
-                    <img src='../../../../img/gallery2.png'></img>
-                    <img src='../../../../img/gallery3.png'></img>
-                    <img src='../../../../img/gallery4.png'></img>
-                    <img src='../../../../img/gallery5.png'></img>
-                    <img src='../../../../img/gallery6.png'></img>
+                    {this.state.picturesLinks.map((link, index) => {
+                        return (
+                            <img onClick={this.modalGelleryImg} key={index} src={link}></img>
+                        );
+                    })}
+                </div>
+                <div onClick={this.closeModal}className="modal__Gallery__window --close__gallery">
+                    
+                    <div className="modal__Gallery"></div>
                 </div>
             </section>
         );
     }
 }
+
+GalleryList.propTypes = {
+    pictures: PropTypes.array,
+};
 
 
 export default GalleryList;

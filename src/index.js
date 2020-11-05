@@ -20,12 +20,18 @@ import AboutCafe from './components/Content/main/additional-windows/AboutCafe.js
 import DeliveryWindow from './components/Content/main/additional-windows/DeliveyWindow.jsx';
 import MenuOutSide from './components/Content/main/additional-windows/MenuOutSide.jsx';
 
+import {tatisheva} from './components/Content/main/galleryObjectsIMG';
+
+const Tatisheva = <GalleryList {...{pictures: tatisheva}} />;
+
 ReactDOM.render(<BrowserRouter>
     <App>
         <Switch>
             <Route exact path='/' component={Main} /> 
             <Route path='/menu' component={MenuList} />
-            <Route path='/gallery' component={GalleryList}/>
+            <Route path='/galleryTatisheva' render={ () => <GalleryList {...{pictures: tatisheva}}/>}/>
+            <Route path='/galleryAstrakhanskay' render={ () => <GalleryList {...{pictures: tatisheva}}/>}/>
+            <Route path='/gallerykulikova' render={ () => <GalleryList {...{pictures: tatisheva}}/>}/>
             <Route path='/stoks' component={Stoks}/>
             <Route path='/map' component={Map}/>
             <Route path='/about-cafe' component={AboutCafe}/>
@@ -34,6 +40,7 @@ ReactDOM.render(<BrowserRouter>
         </Switch>
     </App>
 </BrowserRouter> , document.getElementById('root'));
+
 
 window.addEventListener('popstate',function() {
     window.location.href='/';
@@ -199,11 +206,9 @@ const myIcon = L.icon({
     iconSize: [60, 60],
 });
 
-L.marker([46.400367, 48.091495], {icon: myIcon}).addTo(map).bindTooltip('Жилая, 1');
 L.marker([46.369340, 48.050900], {icon: myIcon}).addTo(map).bindTooltip('Татищева 43а');
 L.marker([46.299018, 48.050145], {icon: myIcon}).addTo(map).bindTooltip('Астраханская 51и/1');
 L.marker([46.355315, 48.077743], {icon: myIcon}).addTo(map).bindTooltip('Куликова 50в');
-L.marker([46.333398, 48.012269], {icon: myIcon}).addTo(map).bindTooltip('Богдана Хмельницкого, 10а');
 
 L.tileLayer.provider('Jawg.Dark', {
     accessToken: 'c61oqWrV1RRTACkEr2NzXh4veCu7O4f9Ue2fru1eAikIn0EDpOi2CECI8dERQMBQ'
