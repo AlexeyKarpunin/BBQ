@@ -19,28 +19,38 @@ import Map from './components/Content/main/additional-windows/Map.jsx';
 import AboutCafe from './components/Content/main/additional-windows/AboutCafe.jsx';
 import DeliveryWindow from './components/Content/main/additional-windows/DeliveyWindow.jsx';
 import MenuOutSide from './components/Content/main/additional-windows/MenuOutSide.jsx';
+import MainGallery from './components/Content/main/main-content/MainGallery.jsx';
 
-import {tatisheva} from './components/Content/main/galleryObjectsIMG';
+import {tatisheva, mainPageIMGGallery} from './components/Content/main/galleryObjectsIMG';
 
-const Tatisheva = <GalleryList {...{pictures: tatisheva}} />;
-
-ReactDOM.render(<BrowserRouter>
-    <App>
-        <Switch>
-            <Route exact path='/' component={Main} /> 
-            <Route path='/menu' component={MenuList} />
-            <Route path='/galleryTatisheva' render={ () => <GalleryList {...{pictures: tatisheva}}/>}/>
+ReactDOM.render(
+    <div className=".body">
+        <BrowserRouter>
+            <App>
+                <Switch>
+                    <Route exact path='/' component={Main} /> 
+                    <Route path='/menu' component={MenuList} />
+                    {/* <Route path='/galleryTatisheva' render={ () => <GalleryList {...{pictures: tatisheva}}/>}/>
             <Route path='/galleryAstrakhanskay' render={ () => <GalleryList {...{pictures: tatisheva}}/>}/>
-            <Route path='/gallerykulikova' render={ () => <GalleryList {...{pictures: tatisheva}}/>}/>
-            <Route path='/stoks' component={Stoks}/>
-            <Route path='/map' component={Map}/>
-            <Route path='/about-cafe' component={AboutCafe}/>
-            <Route path='/delevery' component={DeliveryWindow}/>
-            <Route path='/menuOutSide' component={MenuOutSide}/>
-        </Switch>
-    </App>
-</BrowserRouter> , document.getElementById('root'));
-
+            <Route path='/gallerykulikova' render={ () => <GalleryList {...{pictures: tatisheva}}/>}/> */}
+                    <Route path='/main-gallery' component={MainGallery} />
+                    <Route path='/stoks' component={Stoks}/>
+                    <Route path='/map' component={Map}/>
+                    <Route path='/about-cafe' component={AboutCafe}/>
+                    <Route path='/delevery' component={DeliveryWindow}/>
+                    <Route path='/menuOutSide' component={MenuOutSide}/>
+                </Switch> 
+            </App>
+        </BrowserRouter> 
+        <div className="modal__Gallery__window --close__gallery">
+            <button title="Previous (Left arrow key)" type="button" className="mfp-arrow mfp-arrow-left gallery__arrow  gallery__arrow__rigth"></button>
+            <div className="modal__Gallery">
+                <a className="close"></a>
+            </div>
+            <button title="Next (Right arrow key)" type="button" className="mfp-arrow mfp-arrow-right gallery__arrow gallery__arrow__left"></button>
+        </div>
+    </div>
+    , document.getElementById('root'));
 
 window.addEventListener('popstate',function() {
     window.location.href='/';
@@ -229,3 +239,14 @@ mobileLinkMenu.addEventListener('click', () => {
     menuBtn.classList.remove('header__nav-btn--active');
     btnSvg.classList.remove('active');
 });
+
+
+// const closeBtnGalleryModalWindow = document.querySelector('.close');
+
+// const closeModalGalleryWindow = (e) => {
+//     if (e.target.classList.contains('gallery__arrow')) return;
+//     const modalWindow = document.querySelector('.modal__Gallery__window');
+//     modalWindow.classList.add('--close__gallery');
+// };
+
+// closeBtnGalleryModalWindow.addEventListener('click', closeModalGalleryWindow);

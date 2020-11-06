@@ -1,6 +1,7 @@
 .gallery {
   @include container;
   padding: $gap;
+  position: relative;
 }
 
 .gallery__title {

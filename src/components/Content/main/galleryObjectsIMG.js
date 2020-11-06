@@ -43,9 +43,19 @@ const Astrakhansky = [
     '../../../../img/gallery6.png',
 ];
 
+const mainPageIMGGallery = [
+    '../../../img/gallery1.png',
+    '../../../img/gallery2.png',
+    '../../../img/gallery3.png',
+    '../../../img/gallery4.png',
+    '../../../img/gallery5.png',
+    '../../../img/gallery6.png',
+];
+
 module.exports = {
     tatisheva,
     kulikova,
     Astrakhansky,
+    mainPageIMGGallery,
 };
 

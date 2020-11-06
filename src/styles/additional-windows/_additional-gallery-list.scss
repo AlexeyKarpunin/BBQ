@@ -1,3 +1,11 @@
+.body {
+  position: relative;
+}
+
+.overflow__non__list {
+  overflow: hidden;
+}
+
 .additional__gallery__header {
   text-align: center;
   margin: 0 auto;
@@ -57,15 +65,15 @@
 
 .modal__Gallery__window {
   position: absolute;
-  top: -300px;
+  top: 0;
   left: 0;
-  bottom: -300px;
+  bottom: 0;
   right: 0;
   min-width: 100%;
   min-height: 100%;
   overflow: hidden;
-background-color: rgba(110, 110, 110, 0.5);
-  z-index: 10;
+  background-color: rgba(0, 0, 0, 1);
+  z-index: 10000;
 }
 
 .--close__gallery {
@@ -75,6 +83,10 @@ background-color: rgba(110, 110, 110, 0.5);
 
 .gallery__modal__img {
   z-index: 10;
+}
+
+.gallery__modal__img:hover {
+  cursor: pointer;
 }
 
 .close{
@@ -94,7 +106,7 @@ background-color: rgba(110, 110, 110, 0.5);
   left: 65px;
   width: 26px;
   height: 4px;
-  background: #0a0200;
+  background: #ffffff;
 }
 
 .close:before {
@@ -105,4 +117,38 @@ background-color: rgba(110, 110, 110, 0.5);
 .close:after {
   webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
+}
+
+
+/* Slaider*/
+
+.gallery__arrow {
+  position: fixed;
+  z-index: 12;
+}
+
+
+@media (max-width: 665px) {
+  .modal__Gallery {
+    width: 500px;
+    margin-left: -250px;
+  }
+}
+
+@media (max-width: 570px) {
+  .modal__Gallery {
+    width: 400px;
+    margin-left: -200px;
+  }
+}
+
+@media (max-width: 462px) {
+  .modal__Gallery {
+    width: 300px;
+    margin-left: -150px;
+  }
+
+  .close {
+    display: none;
+  }
 }

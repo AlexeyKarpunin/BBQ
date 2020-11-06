@@ -45,7 +45,7 @@ class Header extends React.Component {
                                 <Link to="delevery" className="navigation__link scroll-to" data-link='#delivery'>Доставка</Link>
                             </li>
                             <li className="navigation__item">
-                                <Link to="gallery" className="navigation__link scroll-to" data-link='#gallery'>Галлерея</Link>
+                                <Link to="main-gallery" className="navigation__link scroll-to" data-link='#gallery'>Галлерея</Link>
                             </li>
                             <li className="navigation__item">
                                 <a className="navigation__link scroll-to" href="/map" data-link='#map'>Посмотреть на карте</a>
