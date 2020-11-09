@@ -6,6 +6,13 @@ import Footer from './Content/footer/Footer.jsx';
 class App extends React.Component {
     constructor (props) {
         super(props);
+        this.state = {
+            basketCounter: 0,
+        };
+    }
+
+    componentDidMount() {
+        if (!sessionStorage.getItem('myProducts')) sessionStorage.setItem('myProducts', '[]');
     }
 
     render () {

@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import Basket from './Basket.jsx';
 class Header extends React.Component {
 
     componentDidMount() {
         window.addEventListener('scroll', this.scroll);
+        
     }
 
     componentWillUnmount() {
+        clearInterval(this.timerID);
         document.removeEventListener('keydown', this.scroll);
     }
 
@@ -18,8 +20,6 @@ class Header extends React.Component {
             document.querySelector('header').classList.remove('header--mini');
         }
     }
-
-
     render () {
         return (
             <header className="header">
@@ -64,6 +64,7 @@ class Header extends React.Component {
                                         <img src='../../img/inst.png' alt="Мы в Инстаграмме"></img>
                                     </a>
                                 </li>
+                                <Basket {...{chackStorage: this.onStorage}} />
                             </ul>
                         </div>
                     </nav>

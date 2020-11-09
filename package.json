@@ -5,6 +5,8 @@
   "homepage": "https://alexeykarpunin.github.io/BBQ",
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -16,10 +18,9 @@
     "react-scripts": "4.0.0",
     "sass": "^1.27.1",
     "sass-loader": "^10.0.4",
+    "style-it": "^2.1.4",
     "web-vitals": "^0.2.4",
-    "webpack": "^4.44.2",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/preset-react": "^7.10.4"
+    "webpack": "^4.44.2"
   },
   "scripts": {
     "build": "webpack --mode production",

@@ -1,0 +1,155 @@
+.order__menu {
+  display: none;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  width: 280px;
+  height: 200px;
+  bottom: 0;
+  z-index: 100;
+  border: 4px solid rgb(131, 114, 114);
+}
+
+.--order__menu_active {
+  display: block;
+}
+
+.order__menu__grid {
+  display: grid;
+  grid-template-columns: repeat(1, 280px);
+  grid-template-rows: repeat(1, auto);
+  grid-template-areas: "price"
+  "amount"
+  "button";
+}
+
+.order__button {
+  margin: 20px auto;
+  width: 200px;
+  grid-area: "button";
+}
+
+.order__price {
+  grid-area: "price";
+}
+
+.order__amount {
+  grid-area: "amount";
+}
+.order__price,
+.order__amount {
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 auto;
+  width: 120px;
+  line-height: 30px;
+  height: 30px;
+  border: 2px solid grey;
+}
+
+.order__menu__grid__text {
+  margin-left: 10px;
+  
+  padding-top: 5px;
+}
+
+.order__btn_minus span {
+  width: 25px;
+  position: absolute;
+  top: 16px;
+  left: 5px;
+  height: 4px;
+  background-color: rgb(92, 91, 91);
+}
+.order__btn_plus:hover span::before,
+.order__btn_plus:hover span,
+.order__btn_minus:hover span {
+  background-color: chocolate;
+}
+
+.order__btn_plus:hover,
+.order__btn_minus:hover {
+  cursor: pointer;
+}
+
+.order__btn_minus {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 85px;
+  left: 15px;
+}
+
+.order__btn_plus{
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  top: 85px;
+  right: 15px;
+}
+
+.order__btn_plus span {
+  width: 25px;
+  position: absolute;
+  top: 16px;
+  left: 5px;
+  height: 4px;
+  background-color: rgb(92, 91, 91);
+}
+
+.order__btn_plus span::before {
+  content: ' ';
+  width: 25px;
+  position: absolute;
+  top: 1px;
+  height: 4px;
+  background-color: rgb(92, 91, 91);
+  transform: rotate(90deg);
+}
+
+.order__btn_close span {
+  position: absolute;
+  width: 22px;
+  height: 3px;
+  background-color: black;
+  transform: rotate(45deg);
+}
+
+.order__btn_close span::before {
+  content: ' ';
+  position: absolute;
+  width: 22px;
+  height: 3px;
+  background-color: black;
+  transform: rotate(90deg);
+}
+
+.order__btn_close {
+  position: absolute;
+  right: 27px;
+  top: 15px;
+}
+
+.order__btn_close:hover span,
+.order__btn_close:hover span::before {
+  cursor: pointer;
+  background-color: rgb(51, 50, 50);
+}
+
+.order__menu_success {
+  position: absolute;
+  display: none;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+}
+
+.success__text {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  margin: auto;
+  white-space: nowrap;
+  position: absolute;
+  font-size: 30px;
+  left: 0; bottom: 10px;
+}

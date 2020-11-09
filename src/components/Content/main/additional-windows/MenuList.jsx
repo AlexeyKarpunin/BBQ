@@ -21,6 +21,7 @@ class MenuList extends React.Component {
         const mobileMenu = document.querySelector('.additional__menu__list');
         const navItemsArr = Array.from(document.querySelectorAll('.navigation__link'));
         
+        window.scrollTo(pageXOffset, 0);
         this.activationLink(navItemsArr);
 
         header.classList.add('additional__menu__black__ground');
