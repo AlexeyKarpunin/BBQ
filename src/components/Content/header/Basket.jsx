@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Style from 'style-it';
+import BasketMenu from '../main/additional-windows/BasketMenu.jsx';
 
 class Basket extends React.Component {
     constructor (props) {
@@ -26,25 +26,31 @@ class Basket extends React.Component {
         this.setState({store: myProducts.length});
     }
 
+    openMenu(e) {
+        e.preventDefault();
+        const basketMenu = document.querySelector('.basket__page');
+        const basketLogo = document.querySelector('.basket');
+
+        basketLogo.classList.add('basket--non--active');
+        basketMenu.classList.remove('basket--non--active');
+    }
+
     render () {
         const {store} = this.state;
 
         return Style.it(`
         .basket::before {
             content: '${store}';
-            color: white;
-            position: absolute;
-            font-size: 20px;
-            width: 5px;
-            top: 30px;
-            left: 40px;
           }
         `,
-        <li className="social__item basket">
-            <Link to="/basket" className="social__link" href="">
-                <img src='../../img/temporary/basket.png' alt="Мы в Инстаграмме"></img>
-            </Link>
-        </li>
+        <div className="basket__wrapper">
+            <li onClick={this.openMenu} className="social__item basket">
+                <a className="social__link" href="">
+                    <img className="basket__img" src='../../img/temporary/basket.png' alt="Корзина"></img>
+                </a>
+            </li>
+            <BasketMenu />
+        </div>
         );
     }
 }

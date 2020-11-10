@@ -1,10 +1,12 @@
 import React from 'react';
 import ProductOfMenu from './ProductOfMenu.jsx';
 import productsOutSideArr from './productsOutSide';
+import Basket from '../../header/Basket.jsx';
 
 const DEFAULT_STATE = {
     index: 0,
     key: 2,
+    basket: 0,
 };
 
 class MenuOutSide extends React.Component {
@@ -12,6 +14,7 @@ class MenuOutSide extends React.Component {
     constructor(props) {
         super(props);
         this.state = DEFAULT_STATE;
+
         this.changeProductList = this.changeProductList.bind(this);
     }
 
@@ -81,10 +84,10 @@ class MenuOutSide extends React.Component {
             await this.setState({index: index}, this.setState({key: Math.random()}));
         }
     }
-
+   
     render () {
-        const {changeProductList} = this;
-        const {index} = this.state;
+        const {changeProductList, addInBasket} = this;
+        const {index, basket} = this.state;
         
         return (
             <main data-swipe-threshold="20" data-swipe-timeout="500" data-swipe-ignore="false" className="additional__menu__list">
@@ -97,6 +100,7 @@ class MenuOutSide extends React.Component {
                         <li index='1' className="additional__menu__list_item">Овощные закуски</li>
                     </ul>
                 </nav>
+                <Basket />
                 <ProductOfMenu key={this.state.key} {...productsOutSideArr[index]} />
             </main>
         );

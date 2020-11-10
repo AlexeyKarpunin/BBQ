@@ -6,6 +6,7 @@
 
 .additional__menu__navigation {
   background-image: url("../img/back_ground_menu_list.png");
+  z-index: 10;
   width: 400px;
 }
 
@@ -128,7 +129,7 @@
 @media (max-width: 600px) {
   .additional__menu__navigation {
     position: relative;
-    left: -300px;
+    left: -400px;
   }
 
   .additional__menu__grid {
@@ -138,7 +139,7 @@
   .additional__menu__swipe_left {
     transition: 0.5s;
     position: relative;
-    width: 100%;
+    min-width: 100%;
     left: 0;
   }
 
@@ -224,3 +225,14 @@
   font-size: 20px;
 }
 
+@media (max-width: 480px) {
+  .additional__menu__grid {
+    left: -400px;
+  }
+}
+
+@media (max-width: 280px) {
+  .additional__menu__grid {
+    margin-top: 60px;
+  }
+}

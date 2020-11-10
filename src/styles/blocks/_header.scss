@@ -112,24 +112,6 @@
   }
 }
 
-.basket {
-  top: 80px;
-  position: absolute;
-  width: 50px;
-}
 
-.basket::before {
-  content: "0";
-  color: white;
-  position: absolute;
-  font-size: 20px;
-  width: 5px;
-  top: 30px;
-  left: 40px;
-}
 
-@media (max-width: 1024px) {
-  .basket {
-    top: 550px;
-  }
-}
+

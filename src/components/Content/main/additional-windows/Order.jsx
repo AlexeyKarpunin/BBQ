@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from '../../header/Header.jsx';
 
 class Order extends React.Component {
     constructor (props) {
@@ -13,6 +12,7 @@ class Order extends React.Component {
             calculation: props.calculation,
             price: props.price,
             uniqueClass: 'order__menu order__menu' + props.index,
+            count: 1,
         };
 
         this.showOrderMenu = this.showOrderMenu.bind(this);
@@ -46,6 +46,9 @@ class Order extends React.Component {
         
         productPrice.innerHTML = parseInt(productPrice.innerHTML) + parseInt(price);
         amount.innerHTML = parseInt(amount.innerHTML) + parseInt(dose);
+        this.setState((state) => {
+            return {count: state.count + 1};
+        });
     }
 
     orderMinus () {
@@ -58,6 +61,11 @@ class Order extends React.Component {
         if (amount.innerHTML === dose) return;
         productPrice.innerHTML = parseInt(productPrice.innerHTML) - parseInt(price);
         amount.innerHTML = parseInt(amount.innerHTML) - parseInt(dose);
+        if (this.state.count !== 1) {
+            this.setState((state) => {
+                return {count: state.count - 1};
+            });
+        }
     }
 
     changerStyleOnNone (className) {
@@ -66,7 +74,7 @@ class Order extends React.Component {
 
     async doOrder() {
         const {index} = this.props;
-        const {name, calculation} =this.state;
+        const {name, calculation, dose, link, count, price} = this.state;
 
         const uniqueClass = '.order__menu' + index;
         const orderMenu = document.querySelector(uniqueClass);
@@ -77,13 +85,11 @@ class Order extends React.Component {
         const myProducts = JSON.parse(sessionStorage.getItem('myProducts'));
         const productPrice = orderMenu.querySelector('.order__price');
         const amount = orderMenu.querySelector('.order__amount');
-
-        myProducts.push([name, productPrice.innerHTML + ' рублей', amount.innerHTML + ` ${calculation}` ]);
+        myProducts.push([link, name, `Порция: ${dose} ${calculation}  `, count, `${Number(productPrice.innerHTML)} руб.`, Number(price)]);
         sessionStorage.setItem('myProducts', JSON.stringify(myProducts));
 
         /* session storage */
-        console.log(sessionStorage.getItem('myProducts')); //order__price order__amount
-
+        
         await setTimeout(() => this.changerStyleOnNone(successWindow), 1000);
         await setTimeout(() => this.closeOrderMenu(), 1000);
     }
@@ -146,6 +152,7 @@ Order.propTypes = {
     calculation: PropTypes.string,
     price: PropTypes.string,
     index: PropTypes.number,
+    addInBasket: PropTypes.func,
 };
 
 export default Order;

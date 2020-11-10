@@ -20,7 +20,6 @@ import AboutCafe from './components/Content/main/additional-windows/AboutCafe.js
 import DeliveryWindow from './components/Content/main/additional-windows/DeliveyWindow.jsx';
 import MenuOutSide from './components/Content/main/additional-windows/MenuOutSide.jsx';
 import MainGallery from './components/Content/main/main-content/MainGallery.jsx';
-import Basket from './components/Content/main/additional-windows/Basket.jsx';
 
 ReactDOM.render(
     <div className=".body">
@@ -28,7 +27,6 @@ ReactDOM.render(
             <App>
                 <Switch>
                     <Route exact path='/' component={Main} /> 
-                    <Route path='/basket' component={Basket}/>
                     <Route path='/menu' component={MenuList} />
                     <Route path='/main-gallery' component={MainGallery} />
                     <Route path='/stoks' component={Stoks}/>

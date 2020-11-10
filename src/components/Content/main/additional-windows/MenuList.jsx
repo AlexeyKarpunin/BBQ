@@ -1,6 +1,7 @@
 import React from 'react';
 import ProductOfMenu from './ProductOfMenu.jsx';
 import productsArray from './products';
+import Basket from '../../header/Basket.jsx';
 
 const DEFAULT_STATE = {
     index: 0,
@@ -101,6 +102,7 @@ class MenuList extends React.Component {
                         <li index='7' className="additional__menu__list_item">Блюда на мангале</li>
                     </ul>
                 </nav>
+                <Basket />
                 <ProductOfMenu key={this.state.key} {...productsArray[index]} />
             </main>
         );

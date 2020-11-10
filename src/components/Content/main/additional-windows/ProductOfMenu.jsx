@@ -14,7 +14,7 @@ class ProductOfMenu extends React.Component {
     }
 
     unpack (productArray) {
-      
+        console.log(this.state);
         return productArray.map((product, index) => {
             return <Order key={index} {...{
                 link: product.imgLink,
@@ -45,7 +45,7 @@ class ProductOfMenu extends React.Component {
 
 ProductOfMenu.propTypes = {
     header: PropTypes.string,
-    products: PropTypes.array
+    products: PropTypes.array,
 };
 
 export default ProductOfMenu;
