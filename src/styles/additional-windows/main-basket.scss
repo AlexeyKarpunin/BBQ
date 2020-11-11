@@ -139,4 +139,9 @@ margin-bottom: 15px;
 .radio__input:checked + .radio__label:after {
   opacity: 1;
 }
-/* Radia end */
+/* Radio end */
+
+.error__border {
+  border: 1px solid red;
+}
+
