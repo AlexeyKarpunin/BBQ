@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class BasketMenu extends React.Component {
     constructor (props) {
@@ -103,14 +104,15 @@ class BasketMenu extends React.Component {
                     }) : <div>Вы ни чего не заказали</div>}
                     <hr></hr>
                     <div className="basket__totatal__menu">
-                       
-                        <span>Сумма: {
-                            myProducts.reduce((acc, product) => {
-                                const num = parseInt(product[4].replace(/\D+/g,''));
-                                return num + acc;
-                            }, 0)
-                        } руб.</span>
-                        <button className="btn basket__btn_push_order">Перейти к заказу</button>
+                        <Link to='/basket-menu'><button className="btn basket__btn_push_order">Перейти к заказу</button></Link>
+                        <span>Сумма:
+                            {
+                                myProducts.reduce((acc, product) => {
+                                    const num = parseInt(product[4].replace(/\D+/g,''));
+                                    return num + acc;
+                                }, 0)
+                            } руб.</span>
+                        
                     </div>
                 </div>
             </section>
@@ -120,20 +122,3 @@ class BasketMenu extends React.Component {
 
 export default BasketMenu;
 
-/* 
-{myProducts.map((product, index) => {
-                    return (
-                        <div className="basket__products" key={index}>
-                            <div>{product[0] + ' ' + product[1] + ' ' + product[2]}</div>
-                            <div data-index={index} onClick={this.deleteProduct} className="basket__btn"><span></span></div>
-                        </div>
-                    );
-                })}
-               Total: {
-                    myProducts.reduce((acc, product) => {
-                        const num = parseInt(product[2].replace(/\D+/g,''));
-
-                        return num + acc;
-                    }, 0)
-                }
-*/

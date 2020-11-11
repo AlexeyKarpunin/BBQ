@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductOfMenu from './ProductOfMenu.jsx';
-import productsArray from './products';
+import productsArray from './products/products';
 import Basket from '../../header/Basket.jsx';
 
 const DEFAULT_STATE = {

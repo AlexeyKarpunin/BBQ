@@ -1,6 +1,6 @@
 import React from 'react';
 import ProductOfMenu from './ProductOfMenu.jsx';
-import productsOutSideArr from './productsOutSide';
+import productsOutSideArr from './products/productsOutSide';
 import Basket from '../../header/Basket.jsx';
 
 const DEFAULT_STATE = {

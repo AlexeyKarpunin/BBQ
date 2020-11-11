@@ -116,6 +116,7 @@ box-shadow:         0px 0px 11px 0px rgba(50, 50, 50, 0.75);
 
 .basket__totatal__menu {
   display: flex;
+  flex-direction: row-reverse;
 }
 
 .basket__totatal__menu span {
@@ -194,6 +195,7 @@ html, body {
   text-align: center;
   align-items: center;
   border-radius: 50%;
+  
   background-color: rgb(170, 2, 2);
  }
  

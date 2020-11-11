@@ -13,7 +13,7 @@ import {
 
 import Main from './components/Content/main/Main.jsx';
 import MenuList from './components/Content/main/additional-windows/MenuList.jsx';
-import GalleryList from './components/Content/main/additional-windows/GalleryList.jsx';
+import MainBasket from './components/Content/main/additional-windows/MainBasket.jsx';
 import Stoks from './components/Content/main/additional-windows/Stoks.jsx';
 import Map from './components/Content/main/additional-windows/Map.jsx';
 import AboutCafe from './components/Content/main/additional-windows/AboutCafe.jsx';
@@ -34,6 +34,7 @@ ReactDOM.render(
                     <Route path='/about-cafe' component={AboutCafe}/>
                     <Route path='/delevery' component={DeliveryWindow}/>
                     <Route path='/menuOutSide' component={MenuOutSide}/>
+                    <Route path='/basket-menu' component={MainBasket}/>
                 </Switch> 
             </App>
         </BrowserRouter> 
