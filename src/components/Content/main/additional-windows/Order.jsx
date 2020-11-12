@@ -4,6 +4,10 @@ import PropTypes from 'prop-types';
 class Order extends React.Component {
     constructor (props) {
         super(props);
+        this.gridRef = React.createRef();
+        this.modalRef = React.createRef();
+        this.headerRef = React.createRef();
+
         this.state = {
             link: props.link,
             name: props.name,
@@ -20,6 +24,22 @@ class Order extends React.Component {
         this.orderPlus = this.orderPlus.bind(this);
         this.orderMinus = this.orderMinus.bind(this);
         this.doOrder = this.doOrder.bind(this);
+    }
+
+    componentDidMount() {
+        const div = this.gridRef.current;
+        const name = this.headerRef.current;
+
+        let height = div.clientHeight - 202 - name.clientHeight;
+        const modalWindow = this.modalRef.current;
+
+        if (height < 195) height = 195;
+        modalWindow.style.height = height + 'px';
+        console.log(div,height, modalWindow);
+    }
+
+    componentWillUnmount() {
+      
     }
 
     showOrderMenu () {
@@ -96,23 +116,22 @@ class Order extends React.Component {
 
     render () {
         const {link, name, description, dose, calculation, price, uniqueClass} = this.state;
+
         return (
-            <div className="additional__menu__grid__box">
+            <div ref={this.gridRef} className="additional__menu__grid__box">
                 <div className="additional__menu__grid__wrapper">
-                    <div className="additional__menu__grid__img">
-                        <img className="menu__grid__img" src={link} alt="menu picture"></img>
-                    </div>
-                    <div className="additional__menu__grid__tittle">
-                        <span className="additional__menu__grid__name" >{name}</span>
-                        <div className="additional__menu__grid__description">{description}</div>
-                    </div>
+                    <img className='additional__menu__grid__img' src={link} alt="menu picture"></img>
+                    <div ref={this.headerRef} className="additional__menu__grid__name">{name}</div> <br></br>
+                    <p className="additional__menu__grid__description">{description}</p>
                     <div className="additional__menu__grid__btn__box">
-                        <span className="additional__menu__grid__description__dose" >Цена за: {dose} {calculation} / {price} 
-                            <span className="additional__menu__grid__price">руб</span> 
-                        </span>
-                        <a onClick={this.showOrderMenu} className="menu__btn btn additional__menu__grid__btn">Заказать</a>
+                        <div className="additional__menu__grid__btn__box__order">
+                            <span className="additional__menu__grid__description__dose" >Цена за: {dose} {calculation} / 
+                                <span className="additional__menu__grid__price">  {price} руб</span> 
+                            </span>
+                            <a onClick={this.showOrderMenu} className="menu__btn btn additional__menu__grid__btn">Заказать</a>
+                        </div>
                     </div>
-                    <div className={uniqueClass}>
+                    <div ref={this.modalRef} className={uniqueClass}>
                         <div className="order__menu__grid">
                             <div>
                                 <span className="order__menu__grid__text">Цена:</span>
@@ -143,6 +162,7 @@ class Order extends React.Component {
         );
     }
 }
+//{description}
 
 Order.propTypes = {
     link: PropTypes.string,

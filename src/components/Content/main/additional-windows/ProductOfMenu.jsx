@@ -14,7 +14,6 @@ class ProductOfMenu extends React.Component {
     }
 
     unpack (productArray) {
-        console.log(this.state);
         return productArray.map((product, index) => {
             return <Order key={index} {...{
                 link: product.imgLink,

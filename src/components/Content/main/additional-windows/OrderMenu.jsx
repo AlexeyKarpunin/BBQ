@@ -110,7 +110,7 @@ class OrderMenu extends React.Component {
                     </div>
 
                     <div className="main-basket__info__item">
-                        <span>Как вы хотите заказывать ?</span><br></br>
+                        <span>Как вы хотите получить заказ ?</span><br></br>
                         <div className="radio">
                             <input className="radio__input" name='delivery' type='radio' id="delivery-btn"></input>
                             <label className="radio__label" htmlFor="delivery-btn">Доставка</label>
@@ -121,12 +121,12 @@ class OrderMenu extends React.Component {
                         </div>
                     </div>
 
-                    <div>
+                    <div className="main-basket__info__item adress__item">
                         <span>Адрес доставки:</span><br></br>
                         <input id='adress' className="main-basket__input__text" type='text' placeholder="Например: 3-я Зеленгинская, 40(в), 1,5,4б" maxLength="100"></input>
                     </div>
                     <div className="main-basket__info__item">
-                        <span>Как вы хотите заказывать ?</span><br></br>
+                        <span>Какой способ оплаты ?</span><br></br>
                         <div className="radio">
                             <input className="radio__input" name='pay' type='radio' id="cash"></input>
                             <label className="radio__label" htmlFor="cash">Наличные</label>
@@ -136,7 +136,7 @@ class OrderMenu extends React.Component {
                             <label className="radio__label" htmlFor="card">Карта</label>
                         </div>
                     </div>
-                    <div className="main-basket__info__item">
+                    <div className="main-basket__info__item comment__item">
                         <span>Ваш комментарий:</span><br></br>
                         <textarea className="main-basket__text__area" placeholder="Напишите дополнительную и уточняющую информацию, если считаете нужным это указать (необязательно)"></textarea>
                     </div>

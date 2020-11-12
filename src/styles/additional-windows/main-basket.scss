@@ -48,12 +48,21 @@ margin-bottom: 15px;
 }
 
 .main-basket__info__item {
-  margin-top: 10px;
+  margin-top: 20px;
+}
+
+.adress__item {
+  margin-top: 50px;
+}
+
+.comment__item {
+  margin-top: 50px;
 }
 
 .main-basket__text__area {
   min-width: 415px;
   min-height: 195px;
+  margin-top: 13px;
   resize: none;
 }
 
@@ -79,7 +88,8 @@ margin-bottom: 15px;
   position: relative;
   margin-bottom: 1rem;
   display: inline;
-  margin-right: 1rem;
+  margin-right: 4rem;
+  top: 14px;
 }
 
 .radio__input {

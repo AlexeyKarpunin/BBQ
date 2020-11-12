@@ -9,6 +9,13 @@ html {
   box-sizing: border-box;
 }
 
+html, body {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+}
+
 body {
   min-width: 320px;
   max-width: 1920px;
