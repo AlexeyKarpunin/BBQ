@@ -39,7 +39,7 @@ class Basket extends React.Component {
         const {store} = this.state;
 
         return Style.it(`
-        .basket::before {
+        .basket::before { 
             content: '${store}';
           }
         `,

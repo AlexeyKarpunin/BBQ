@@ -35,11 +35,6 @@ class Order extends React.Component {
 
         if (height < 195) height = 195;
         modalWindow.style.height = height + 'px';
-        console.log(div,height, modalWindow);
-    }
-
-    componentWillUnmount() {
-      
     }
 
     showOrderMenu () {
