@@ -1,6 +1,6 @@
 import React from 'react';
 import Gallery from './Gallery.jsx';
-import {tatisheva} from '../galleryObjectsIMG';
+import {tatisheva, tatishevaModal} from '../galleryObjectsIMG';
 
 class MainGallery extends React.Component {
     componentDidMount() {
@@ -43,24 +43,26 @@ class MainGallery extends React.Component {
         return (
             <section>
                 <Gallery {...{
-                    header: 'Галлерея кафе на улице Татищева 43а',
+                    header: 'Галерея кафе на улице Татищева 43а',
                     link:'/galleryTatisheva',
                     button: 'null',
                     img: tatisheva,
+                    modalImg: tatishevaModal,
                 }} />
                 <Gallery {...{
-                    header: 'Галлерея кафе на улице Астраханская 51и/1',
+                    header: 'Галерея кафе на улице Астраханская 51и/1',
                     link:'/galleryAstrakhanskay',
                     button: 'null',
                     img: tatisheva,
+                    modalImg: tatishevaModal,
                 }} />
                 <Gallery {...{
-                    header: 'Галлерея кафе на улице Куликкова 50в',
+                    header: 'Галерея кафе на улице Куликкова 50в',
                     link:'/gallerykulikova',
                     button: 'null',
                     img: tatisheva,
+                    modalImg: tatishevaModal,
                 }} />
-
             </section>
         );
     }

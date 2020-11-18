@@ -8,7 +8,7 @@ import Gallery from './main-content/Gallery.jsx';
 import Reviews from './main-content/Reviews.jsx';
 import Contacts from './main-content/Contacts.jsx';
 
-import {mainPageIMGGallery} from './galleryObjectsIMG';
+import {mainPageIMGGallery, modalMainPageIMGGallery} from './galleryObjectsIMG';
 
 class Main extends React.Component {
    
@@ -20,10 +20,11 @@ class Main extends React.Component {
                 <Adventage />
                 <Delivery />
                 <Gallery {...{
-                    header: 'Наши галлереи',
+                    header: 'Наши галереи',
                     link: '/main-gallery',
                     button: 'Посмотреть все фото',
                     img: mainPageIMGGallery,
+                    modalImg: modalMainPageIMGGallery,
                 }} />
                 <Reviews />
                 <Contacts />

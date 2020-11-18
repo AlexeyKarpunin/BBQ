@@ -34,6 +34,7 @@ class Delivery extends React.Component {
     };
 
     click (evt) {
+        if (window.location.pathname === '/') return;
         evt.preventDefault();
         modalSubmit.innerHTML = this.modalTemplate();
         modal.classList.remove('modal--close');
@@ -50,7 +51,7 @@ class Delivery extends React.Component {
           Талантливые повара приготовят массу необычных блюд.
           А фирменная подача блюд покорит красотой самых искушенных ценителей.
                     </p>
-                    <a onClick={this.click} className="delivery__btn btn" href="">Заказать шашлык</a>
+                    <a onClick={this.click} className="delivery__btn btn" href="/menuOutSide">Заказать шашлык</a>
                 </div>
             </section>
         );

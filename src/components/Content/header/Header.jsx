@@ -30,25 +30,25 @@ class Header extends React.Component {
                     <nav className="header__navigation">
                         <ul className="navigation">
                             <li className="navigation__item">
-                                <a className="navigation__link scroll-to" data-link='#about' href='/' >О кафе</a>
+                                <Link to="/about-cafe" className="navigation__link" data-link='#about' href='/'>О кафе</Link>
                             </li>
                             <li className="navigation__item">
-                                <Link to="menuOutSide" className="navigation__link" data-link='#menu-out-side'>Меню на вынос</Link>
+                                <Link to="/menuOutSide" className="navigation__link" data-link='#menu-out-side'>Меню на вынос<br></br>Доставка</Link>
                             </li>
                             <li className="navigation__item">
-                                <Link to="menu" className="navigation__link scroll-to" data-link='#menu'>Меню</Link>
+                                <Link to="/menu" className="navigation__link" data-link='#menu'>Меню</Link>
                             </li>
                             <li className="navigation__item">
                                 <Link to='/stoks' className="navigation__link" data-link='#stoks'>Акции</Link>
                             </li>
                             <li className="navigation__item">
-                                <Link to="delevery" className="navigation__link scroll-to" data-link='#delivery'>Доставка</Link>
+                                <Link to="/delevery" className="navigation__link" data-link='#delivery'>Условия доставки</Link>
                             </li>
                             <li className="navigation__item">
-                                <Link to="main-gallery" className="navigation__link scroll-to" data-link='#gallery'>Галлерея</Link>
+                                <Link to="/main-gallery" className="navigation__link" data-link='#gallery'>Галлерея</Link>
                             </li>
                             <li className="navigation__item">
-                                <a className="navigation__link scroll-to" href="/map" data-link='#map'>Посмотреть на карте</a>
+                                <a className="navigation__link" href="/map" data-link='#map'>Посмотреть на карте</a>
                             </li>
                         </ul>
                         <div className="header__info">

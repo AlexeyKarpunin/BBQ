@@ -123,7 +123,7 @@ class Order extends React.Component {
                             <span className="additional__menu__grid__description__dose" >Цена за: {dose} {calculation} / 
                                 <span className="additional__menu__grid__price">  {price} руб</span> 
                             </span>
-                            <a onClick={this.showOrderMenu} className="menu__btn btn additional__menu__grid__btn">Заказать</a>
+                            <a onClick={this.showOrderMenu} className="menu__btn btn additional__menu__grid__btn">Добавить</a>
                         </div>
                     </div>
                     <div ref={this.modalRef} className={uniqueClass}>
@@ -140,7 +140,7 @@ class Order extends React.Component {
                                     {dose}
                                 </div>
                             </div>
-                            <a onClick={this.doOrder} className="menu__btn btn order__button">Заказать</a>
+                            <a onClick={this.doOrder} className="menu__btn btn order__button">Добавить</a>
 
                             <div onClick={this.orderMinus} className="order__btn_minus"><span ></span></div>
                             
@@ -148,7 +148,7 @@ class Order extends React.Component {
 
                             <div onClick={this.closeOrderMenu} className="order__btn_close"><span></span></div>
                             <div className="order__menu_success">
-                                <span className="success__text">Ваш заказ принят!!!</span>
+                                <span className="success__text">Добавлено в корзину!</span>
                             </div>
                         </div>
                     </div>

@@ -38,12 +38,21 @@ ReactDOM.render(
                 </Switch> 
             </App>
         </BrowserRouter> 
+
         <div className="modal__Gallery__window --close__gallery">
-            <button title="Previous (Left arrow key)" type="button" className="mfp-arrow mfp-arrow-left gallery__arrow  gallery__arrow__rigth"></button>
-            <div className="modal__Gallery">
-                <a className="close"></a>
-            </div>
-            <button title="Next (Right arrow key)" type="button" className="mfp-arrow mfp-arrow-right gallery__arrow gallery__arrow__left"></button>
+            <section className="full__screen">
+                <div className="fullscreen__body">
+                    <button className="fullscreen__arrow fullscreen__arrow__left"></button>
+                    <div className="fullscreen__container">
+                        <a className="close"></a>
+                        <img className="fullscreen__img" index='2' src=''></img>
+                        <div className="full__screan_btn">
+                            <img className="full__screan__img" src='../../../../img/full-screan.png' alt='full-screan'></img>
+                        </div>
+                    </div>
+                    <button className="fullscreen__arrow fullscreen__arrow__right"></button>
+                </div>
+            </section>
         </div>
     </div>
     , document.getElementById('root'));
@@ -113,7 +122,7 @@ $(document).ready(function() {
 
 const modal = document.querySelector('.modal');
 const closeModal = modal.querySelector('.modal__close');
-const deliveryBtn = document.querySelector('.delivery__btn');
+// const deliveryBtn = document.querySelector('.delivery__btn');
 const reviewsBtn = document.querySelector('.reviews__btn');
 const advantageBtn = document.querySelector('.advantage__btn');
 const modalSubmit = modal.querySelector('.modal__form');
@@ -165,14 +174,14 @@ if (advantageBtn) {
     });
 }
 
-if (deliveryBtn) {
-    deliveryBtn.addEventListener('click', (evt) => {
-        evt.preventDefault();
-        modalSubmit.innerHTML = modalTemplate();
-        modal.classList.remove('modal--close');
-        typeForm = 'delivery';
-    });
-}
+// if (deliveryBtn) {
+//     deliveryBtn.addEventListener('click', (evt) => {
+//         evt.preventDefault();
+//         modalSubmit.innerHTML = modalTemplate();
+//         modal.classList.remove('modal--close');
+//         typeForm = 'delivery';
+//     });
+// }
 
 if (reviewsBtn) {
     reviewsBtn.addEventListener('click', (evt) => {
@@ -235,14 +244,3 @@ mobileLinkMenu.addEventListener('click', () => {
     menuBtn.classList.remove('header__nav-btn--active');
     btnSvg.classList.remove('active');
 });
-
-
-// const closeBtnGalleryModalWindow = document.querySelector('.close');
-
-// const closeModalGalleryWindow = (e) => {
-//     if (e.target.classList.contains('gallery__arrow')) return;
-//     const modalWindow = document.querySelector('.modal__Gallery__window');
-//     modalWindow.classList.add('--close__gallery');
-// };
-
-// closeBtnGalleryModalWindow.addEventListener('click', closeModalGalleryWindow);

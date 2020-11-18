@@ -10,40 +10,98 @@ class Gallery extends React.Component {
             link: props.link,
             buttonName: props.button,
             picturesLinks: props.img,
+            modalImg: props.modalImg,
         };
 
         this.moveRight = this.moveRight.bind(this);
         this.moveLeft = this.moveLeft.bind(this);
+        this.modalGelleryImg = this.modalGelleryImg.bind(this);
+        this.fullScrean = this.fullScrean.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
 
     componentDidMount () {
-        const rigthArrow = document.querySelector('.gallery__arrow__rigth');
-        const leftArrow = document.querySelector('.gallery__arrow__left');
         const closeBtn = document.querySelector('.modal__Gallery__window');
-        
-        closeBtn.addEventListener('click', this.closeModal);
-        rigthArrow.addEventListener('click', this.moveRight);
-        leftArrow.addEventListener('click', this.moveRight);
 
+        closeBtn.addEventListener('click', this.closeModal);
     }
 
-    componentWillUnmount () {}
+    componentWillUnmount () {
+        const closeBtn = document.querySelector('.modal__Gallery__window');
+      
+        closeBtn.removeEventListener('click', this.closeModal);
+    }
+
+    fullScrean () {
+        if (!document.fullscreenElement) {
+            const body = document.querySelector('.fullscreen__body');
+            const closeBtn = document.querySelector('.close');
+            closeBtn.classList.add('--close__gallery');
+            body.classList.add('full');
+            document.documentElement.requestFullscreen();
+        } else {
+            const body = document.querySelector('.fullscreen__body');
+            const closeBtn = document.querySelector('.close');
+
+            body.classList.remove('full');
+            closeBtn.classList.remove('--close__gallery');
+            document.exitFullscreen();
+        }
+    }
 
     modalGelleryImg (e) {
-        const modal = document.querySelector('.modal__Gallery');
         const body = document.querySelector('body');
         body.classList.add('overflow__non__list');
         const modalWindow = document.querySelector('.modal__Gallery__window');
-        modal.innerHTML =
-         `
-         <img style="width: inherit;" className="gallery__modal__img" index=${e.target.getAttribute('index')} src=${e.target.getAttribute('src')}></img>
-         <a className="close" class="close"></a>
-        `;
+        const index = e.target.getAttribute('index');
+        modalWindow.innerHTML =
+      ` 
+      <section class="full__screen">
+        
+                <div class="fullscreen__body ${document.fullscreenElement ? 'full' : null}">
+                      <button class="fullscreen__arrow fullscreen__arrow__left"></button>
+                      <div class="fullscreen__container">
+                        <a class="close ${document.fullscreenElement ? '--close__gallery' : null}"></a>
+                        <img class="fullscreen__img" index=${index} src=${this.state.modalImg[index]}></img>
+                          <div class="full__screan_btn">
+                            <img class="full__screan__img" src='../../../../img/full-screan.png' alt='full-screan'></img>
+                          </div>
+                      </div>
+                      <button class="fullscreen__arrow fullscreen__arrow__right"></button>
+                </div>
+        </section>`;
         modalWindow.classList.remove('--close__gallery');
     }
 
+
     closeModal (e) {
-        if (e.target.classList.contains('gallery__arrow')) return;
+
+        if (e.target.classList.contains('fullscreen__arrow__left')) {
+            this.moveLeft();
+            return;
+        };
+
+        if (e.target.classList.contains('fullscreen__arrow__right')) {
+            this.moveRight();
+            return;
+        };
+
+        if (e.target.classList.contains('full__screan_btn') || e.target.classList.contains('full__screan__img')) {
+            this.fullScrean();
+            return;
+        }
+
+        if(document.fullscreenElement) {
+            const body = document.querySelector('.fullscreen__body');
+            const closeBtn = document.querySelector('.close');
+
+            body.classList.remove('full');
+            closeBtn.classList.remove('--close__gallery');
+
+            document.exitFullscreen();
+            return;
+        }
+
         const body = document.querySelector('body');
         body.classList.remove('overflow__non__list');
         const modalWindow = document.querySelector('.modal__Gallery__window');
@@ -51,30 +109,51 @@ class Gallery extends React.Component {
     }
 
     moveRight() {
-        const modal = document.querySelector('.modal__Gallery');
-        const modalImg = modal.getElementsByTagName('img');
+        const modalWindow = document.querySelector('.modal__Gallery__window');
+        const modalImg = modalWindow.getElementsByTagName('img');
         let index = Number(modalImg[0].getAttribute('index')) + 1;
-        
+
         if (index > this.state.picturesLinks.length - 1) index = 0;
-        modal.innerHTML = 
-        `
-        <img style="width: inherit;" className="gallery__modal__img" index=${index} src=${this.state.picturesLinks[index]}></img>
-        <a className="close" class="close"></a>
-        `;
+        modalWindow.innerHTML =
+        ` 
+        <section class="full__screen">
+          
+        <div class="fullscreen__body ${document.fullscreenElement ? 'full' : null}">
+                        <button class="fullscreen__arrow fullscreen__arrow__left"></button>
+                        <div class="fullscreen__container">
+                          <a class="close ${document.fullscreenElement ? '--close__gallery' : null}"></a>
+                          <img class="fullscreen__img" index=${index} src=${this.state.modalImg[index]}></img>
+                            <div class="full__screan_btn">
+                              <img class="full__screan__img" src='../../../../img/full-screan.png' alt='full-screan'></img>
+                            </div>
+                        </div>
+                        <button class="fullscreen__arrow fullscreen__arrow__right"></button>
+                  </div>
+          </section>`;
     }
 
     moveLeft() {
-        const modal = document.querySelector('.modal__Gallery');
-        const modalImg = modal.getElementsByTagName('img');
+        const modalWindow = document.querySelector('.modal__Gallery__window');
+        const modalImg = modalWindow.getElementsByTagName('img');
         let index = Number(modalImg[0].getAttribute('index')) - 1;
         
-        if (index === 0) index = this.state.picturesLinks.length - 1;
+        if (index <= 0) index = this.state.picturesLinks.length - 1;
 
-        modal.innerHTML = 
-        `
-        <img style="width: inherit;" className="gallery__modal__img" index=${index} src=${this.state.picturesLinks[index]}></img>
-        <a className="close" class="close"></a>
-        `;
+        modalWindow.innerHTML =
+        ` 
+        <section class="full__screen">
+                 <div class="fullscreen__body ${document.fullscreenElement ? 'full' : null}">
+                        <button class="fullscreen__arrow fullscreen__arrow__left"></button>
+                        <div class="fullscreen__container">
+                          <a class="close ${document.fullscreenElement ? '--close__gallery' : null}"></a>
+                          <img class="fullscreen__img" index=${index} src=${this.state.modalImg[index]}></img>
+                            <div class="full__screan_btn">
+                              <img class="full__screan__img" src='../../../../img/full-screan.png' alt='full-screan'></img>
+                            </div>
+                        </div>
+                        <button class="fullscreen__arrow fullscreen__arrow__right"></button>
+                  </div>
+          </section>`;
     }
     
     render () {
@@ -91,7 +170,8 @@ class Gallery extends React.Component {
                         );
                     })}
                 </ul>
-                {buttonName === 'null' ? null : <Link to={this.state.link} className="gallery__btn btn" href="">{this.state.buttonName}</Link>}
+                {buttonName === 'null' ? null : <a to={this.state.link} className="gallery__btn btn" href="/main-gallery">{this.state.buttonName}</a>}
+                
             </section>
         );
     }
@@ -102,6 +182,7 @@ Gallery.propTypes = {
     link: PropTypes.string,
     button: PropTypes.string,
     img: PropTypes.array,
+    modalImg: PropTypes.array,
 };
 
 export default Gallery;
