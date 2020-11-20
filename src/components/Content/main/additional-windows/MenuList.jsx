@@ -59,7 +59,7 @@ class MenuList extends React.Component {
         return (
             <main>
                 <section className="menu__list__container">
-                    <h1>Меню Пиратская Станция</h1>
+                    <h1>Меню Шашлычный мир</h1>
                     <div className="menu__line1"></div>
                     <div className="menu__line2"></div>
                     <h2 className="menu__header">Закуски</h2>

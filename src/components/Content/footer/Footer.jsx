@@ -11,10 +11,10 @@ class Footer extends React.Component {
                     <img src="../../img/logo.png" alt=""></img>
                     <ul className="navigation navigation--footer">
                         <li className="navigation__item">
-                            <Link to="/about-cafe" className="navigation__link" data-link='#about' href='/'>О кафе</Link>
+                            <a className="navigation__link" data-link='#about' href='/'>О кафе</a>
                         </li>
                         <li className="navigation__item">
-                            <Link to="/menuOutSide" className="navigation__link" data-link='#menu-out-side'>Меню на вынос<br></br>Доставка</Link>
+                            <Link to="/menuOutSide" className="navigation__link" data-link='#menu-out-side'>Меню на вынос, доставка</Link>
                         </li>
                         <li className="navigation__item">
                             <Link to="/menu" className="navigation__link" data-link='#menu'>Меню</Link>
@@ -26,20 +26,15 @@ class Footer extends React.Component {
                             <Link to="/delevery" className="navigation__link" data-link='#delivery'>Условия доставки</Link>
                         </li>
                         <li className="navigation__item">
-                            <Link to="/main-gallery" className="navigation__link" data-link='#gallery'>Галлерея</Link>
+                            <Link to="/main-gallery" className="navigation__link" data-link='#gallery'>Галерея</Link>
                         </li>
                         <li className="navigation__item">
-                            <a className="navigation__link" href="/map" data-link='#map'>Посмотреть на карте</a>
+                            <a className="navigation__link" href="/map" data-link='#map'>Контакты</a>
                         </li>
                     </ul>
                     <div className="header__info">
-                        <a className="phone" href="tel:88512999616">999-616</a>
+                        <a className="phone__footer" href="tel:88512999616">999-616</a>
                         <ul className="social">
-                            <li className="social__item">
-                                <a className="social__link" href="">
-                                    <img src='../../img/vk.png' alt="Мы во ВКонтакте"></img>
-                                </a>
-                            </li>
                             <li className="social__item">
                                 <a className="social__link" href="">
                                     <img src='../../img/inst.png' alt="Мы в Инстаграмме"></img>

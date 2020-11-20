@@ -57,7 +57,7 @@ class MainGallery extends React.Component {
                     modalImg: tatishevaModal,
                 }} />
                 <Gallery {...{
-                    header: 'Галерея кафе на улице Куликкова 50в',
+                    header: 'Галерея кафе на улице Куликова 50в',
                     link:'/gallerykulikova',
                     button: 'null',
                     img: tatisheva,

@@ -1,7 +1,7 @@
 import React from 'react';
 import ProductOfMenu from './ProductOfMenu.jsx';
 import productsOutSideArr from './products/productsOutSide';
-import Basket from '../../header/Basket.jsx';
+import Basket from './Basket.jsx';
 
 const DEFAULT_STATE = {
     index: 0,
@@ -86,7 +86,7 @@ class MenuOutSide extends React.Component {
     }
    
     render () {
-        const {changeProductList, addInBasket} = this;
+        const {changeProductList} = this;
         const {index, basket} = this.state;
         
         return (

@@ -1,4 +1,4 @@
-.phone {
+.phone__footer {
   padding-left: 35px;
   text-decoration: none;
   color: white;
@@ -9,6 +9,25 @@
   background-repeat: no-repeat;
   background-position: center left;
 }
+
 .z_index--non--active {
   z-index: -1;
+}
+
+
+.phone {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.z_index--non--active {
+  z-index: -1;
+}
+
+.header__numbers {
+  display: flex;
+  flex-direction: column;
 }

@@ -30,7 +30,7 @@ class Header extends React.Component {
                     <nav className="header__navigation">
                         <ul className="navigation">
                             <li className="navigation__item">
-                                <Link to="/about-cafe" className="navigation__link" data-link='#about' href='/'>О кафе</Link>
+                                <a className="navigation__link" data-link='#about' href='/'>О кафе</a>
                             </li>
                             <li className="navigation__item">
                                 <Link to="/menuOutSide" className="navigation__link" data-link='#menu-out-side'>Меню на вынос<br></br>Доставка</Link>
@@ -42,23 +42,22 @@ class Header extends React.Component {
                                 <Link to='/stoks' className="navigation__link" data-link='#stoks'>Акции</Link>
                             </li>
                             <li className="navigation__item">
-                                <Link to="/delevery" className="navigation__link" data-link='#delivery'>Условия доставки</Link>
+                                <Link to="/delevery" className="navigation__link" data-link='#delivery'>Условия<br></br>доставки</Link>
                             </li>
                             <li className="navigation__item">
-                                <Link to="/main-gallery" className="navigation__link" data-link='#gallery'>Галлерея</Link>
+                                <Link to="/main-gallery" className="navigation__link" data-link='#gallery'>Галерея</Link>
                             </li>
                             <li className="navigation__item">
-                                <a className="navigation__link" href="/map" data-link='#map'>Посмотреть на карте</a>
+                                <a className="navigation__link" href="/map" data-link='#map'>Контакты</a>
                             </li>
                         </ul>
                         <div className="header__info">
-                            <a className="phone" href="tel:88512999616">999-616</a>
+                            <div className="header__numbers">
+                                <a className="phone phone__header" href="tel:88512999616">Куликова, 50в, +7‒927‒5‒555‒828</a>
+                                <a className="phone phone__header" href="tel:88512999616">Татищева, 43а, +7‒927‒569‒96‒96</a>
+                                <a className="phone phone__header" href="tel:88512999616">Астраханская 51и/1, +7 (8512) 75‒87‒58</a>
+                            </div>
                             <ul className="social">
-                                <li className="social__item">
-                                    <a className="social__link" href="">
-                                        <img src='../../img/vk.png' alt="Мы во ВКонтакте"></img>
-                                    </a>
-                                </li>
                                 <li className="social__item">
                                     <a className="social__link" href="">
                                         <img src='../../img/inst.png' alt="Мы в Инстаграмме"></img>

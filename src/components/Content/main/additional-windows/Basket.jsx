@@ -1,6 +1,6 @@
 import React from 'react';
 import Style from 'style-it';
-import BasketMenu from '../main/additional-windows/BasketMenu.jsx';
+import BasketMenu from './BasketMenu.jsx';
 
 class Basket extends React.Component {
     constructor (props) {
@@ -46,7 +46,7 @@ class Basket extends React.Component {
         <div className="basket__wrapper">
             <li onClick={this.openMenu} className="social__item basket">
                 <a className="social__link" href="">
-                    <img className="basket__img" src='../../img/basket.png' alt="Корзина"></img>
+                    <img className="basket__img" style={{'margin-top': '15px',}} src='../../img/basket.png' alt="Корзина"></img>
                 </a>
             </li>
             <BasketMenu />
