@@ -87,7 +87,7 @@ class MenuOutSide extends React.Component {
    
     render () {
         const {changeProductList} = this;
-        const {index, basket} = this.state;
+        const {index} = this.state;
         
         return (
             <main data-swipe-threshold="20" data-swipe-timeout="500" data-swipe-ignore="false" className="additional__menu__list">

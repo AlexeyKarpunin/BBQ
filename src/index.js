@@ -122,20 +122,19 @@ $(document).ready(function() {
 
 const modal = document.querySelector('.modal');
 const closeModal = modal.querySelector('.modal__close');
-// const deliveryBtn = document.querySelector('.delivery__btn');
 const reviewsBtn = document.querySelector('.reviews__btn');
 const advantageBtn = document.querySelector('.advantage__btn');
 const modalSubmit = modal.querySelector('.modal__form');
 let typeForm;
 
-const modalTemplate = () => {
-    return (
-        `<p class="modal__title">Оставьте заявку, мы вам перезвоним и уточним детали заказа</p>
-     <input class="modal__input" type="text" required placeholder="Ваше имя" minlength="3">
-     <input class="modal__input" type="tel" required placeholder="Ваш номер">
-     <button class="modal__btn btn" type="submit">Отправить</button>`
-    );
-};
+// const modalTemplate = () => {
+//     return (
+//         `<p class="modal__title">Оставьте заявку, мы вам перезвоним и уточним детали заказа</p>
+//      <input class="modal__input" type="text" required placeholder="Ваше имя" minlength="3">
+//      <input class="modal__input" type="tel" required placeholder="Ваш номер">
+//      <button class="modal__btn btn" type="submit">Отправить</button>`
+//     );
+// };
 
 const modalAdvantageTemple = () => {
     return (
@@ -173,15 +172,6 @@ if (advantageBtn) {
         typeForm = 'to book';
     });
 }
-
-// if (deliveryBtn) {
-//     deliveryBtn.addEventListener('click', (evt) => {
-//         evt.preventDefault();
-//         modalSubmit.innerHTML = modalTemplate();
-//         modal.classList.remove('modal--close');
-//         typeForm = 'delivery';
-//     });
-// }
 
 if (reviewsBtn) {
     reviewsBtn.addEventListener('click', (evt) => {
@@ -229,13 +219,13 @@ L.tileLayer.provider('Jawg.Dark', {
     accessToken: 'c61oqWrV1RRTACkEr2NzXh4veCu7O4f9Ue2fru1eAikIn0EDpOi2CECI8dERQMBQ'
 }).addTo(map);
 
-$('a.scroll-to').on('click', function(e) {
-    if (window.location.pathname === '/') {
-        e.preventDefault();
-        const anchor = e.target.getAttribute('data-link');
-        $('html,body').animate({scrollTop:$(anchor).offset().top+'px'},{duration:1E3});
-    }
-});
+// $('a.scroll-to').on('click', function(e) {
+//     if (window.location.pathname === '/') {
+//         e.preventDefault();
+//         const anchor = e.target.getAttribute('data-link');
+//         $('html,body').animate({scrollTop:$(anchor).offset().top+'px'},{duration:1E3});
+//     }
+// });
 
 const mobileLinkMenu = document.querySelector('.header__navigation');
 

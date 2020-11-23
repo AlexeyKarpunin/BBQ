@@ -1,6 +1,5 @@
 .navigation {
   @include list;
-
   &--footer {
     padding: 20px 0;
 
@@ -39,12 +38,12 @@
 @media (min-width: 1024px) {
   .navigation {
     display: flex;
+    justify-content: space-evenly;
     flex-grow: 1;
-    justify-content: center;
   }
 
   .navigation__item {
-    margin: 0 10px;
+    // margin: 0 10px;
     align-self: center;
   }
 

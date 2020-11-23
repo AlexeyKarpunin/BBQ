@@ -9,14 +9,16 @@ class Header extends React.Component {
     }
 
     componentWillUnmount() {
-        clearInterval(this.timerID);
         document.removeEventListener('keydown', this.scroll);
     }
 
     scroll () {
+        const addressMenu = document.querySelector('.header__numbers');
         if (pageYOffset > 0) {
+            addressMenu.classList.add('--not__show');
             document.querySelector('header').classList.add('header--mini');
         } else if (pageYOffset <= 100) {
+            addressMenu.classList.remove('--not__show');
             document.querySelector('header').classList.remove('header--mini');
         }
     }
@@ -27,45 +29,56 @@ class Header extends React.Component {
                     <a className="header__logo" href="/">
                         <img src='../../img/logo.png' alt="Шашлычный мир"></img>
                     </a>
-                    <nav className="header__navigation">
-                        <ul className="navigation">
-                            <li className="navigation__item">
-                                <a className="navigation__link" data-link='#about' href='/'>О кафе</a>
-                            </li>
-                            <li className="navigation__item">
-                                <Link to="/menuOutSide" className="navigation__link" data-link='#menu-out-side'>Меню на вынос<br></br>Доставка</Link>
-                            </li>
-                            <li className="navigation__item">
-                                <Link to="/menu" className="navigation__link" data-link='#menu'>Меню</Link>
-                            </li>
-                            <li className="navigation__item">
-                                <Link to='/stoks' className="navigation__link" data-link='#stoks'>Акции</Link>
-                            </li>
-                            <li className="navigation__item">
-                                <Link to="/delevery" className="navigation__link" data-link='#delivery'>Условия<br></br>доставки</Link>
-                            </li>
-                            <li className="navigation__item">
-                                <Link to="/main-gallery" className="navigation__link" data-link='#gallery'>Галерея</Link>
-                            </li>
-                            <li className="navigation__item">
-                                <a className="navigation__link" href="/map" data-link='#map'>Контакты</a>
-                            </li>
-                        </ul>
-                        <div className="header__info">
-                            <div className="header__numbers">
-                                <a className="phone phone__header" href="tel:88512999616">Куликова, 50в, +7‒927‒5‒555‒828</a>
-                                <a className="phone phone__header" href="tel:88512999616">Татищева, 43а, +7‒927‒569‒96‒96</a>
-                                <a className="phone phone__header" href="tel:88512999616">Астраханская 51и/1, +7 (8512) 75‒87‒58</a>
+                    <div className="header__info__wrrapper">
+                        <div className="header__numbers">
+                            <div className="header__number__box">
+                                <a className="phone phone__header address__img" href="tel:88512999616">Куликова, 50в</a>
+                                <a className="phone phone__header" href="tel:88512999616">+7 (927) 5‒555‒828</a>
                             </div>
-                            <ul className="social">
-                                <li className="social__item">
-                                    <a className="social__link" href="">
-                                        <img src='../../img/inst.png' alt="Мы в Инстаграмме"></img>
-                                    </a>
+                            <div className="header__number__box">
+                                <a className="phone phone__header address__img" href="tel:88512999616">Татищева, 43а</a>
+                                <a className="phone phone__header" href="tel:88512999616">+7 (927) 569‒96‒96</a>
+                            </div>
+                            <div className="header__number__box">
+                                <a className="phone phone__header address__img" href="tel:88512999616">Астраханская 51и/1</a>
+                                <a className="phone phone__header" href="tel:88512999616">+7 (8512) 75‒87‒58 </a>
+                            </div>
+                            <div className="header__info">
+                                <ul className="social">
+                                    <li className="social__item">
+                                        <a className="social__link" href="">
+                                            <img src='../../img/inst.png' alt="Мы в Инстаграмме"></img>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <nav className="header__navigation">
+                            <ul className="navigation">
+                                <li className="navigation__item">
+                                    <a className="navigation__link" data-link='#about' href='/'>О кафе</a>
+                                </li>
+                                <li className="navigation__item">
+                                    <a href="/menuOutSide" className="navigation__link" data-link='#menu-out-side'>Меню на вынос доставка</a>
+                                </li>
+                                <li className="navigation__item">
+                                    <a href="/menu" className="navigation__link" data-link='#menu'>Меню</a>
+                                </li>
+                                <li className="navigation__item">
+                                    <a href='/stoks' className="navigation__link" data-link='#stoks'>Акции</a>
+                                </li>
+                                <li className="navigation__item">
+                                    <a href="/delevery" className="navigation__link" data-link='#delivery'>Условия доставки</a>
+                                </li>
+                                <li className="navigation__item">
+                                    <a href="/main-gallery" className="navigation__link" data-link='#gallery'>Галерея</a>
+                                </li>
+                                <li className="navigation__item">
+                                    <a className="navigation__link" href="/map" data-link='#map'>Контакты</a>
                                 </li>
                             </ul>
-                        </div>
-                    </nav>
+                        </nav>
+                    </div>
                     <button className="header__nav-btn" type="button">
                         <svg className="ham hamRotate ham1" viewBox="0 0 100 100" width="50">
                             <path
