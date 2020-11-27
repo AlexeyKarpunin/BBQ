@@ -33,15 +33,15 @@ class Header extends React.Component {
                         <div className="header__numbers">
                             <div className="header__number__box">
                                 <a className="phone phone__header address__img" href="tel:88512999616">Куликова, 50в</a>
-                                <a className="phone phone__header" href="tel:88512999616">+7 (927) 5‒555‒828</a>
+                                <a className="phone phone__header" href="tel:88512999616">77-30-77</a>
                             </div>
                             <div className="header__number__box">
                                 <a className="phone phone__header address__img" href="tel:88512999616">Татищева, 43а</a>
-                                <a className="phone phone__header" href="tel:88512999616">+7 (927) 569‒96‒96</a>
+                                <a className="phone phone__header" href="tel:88512999616">99-96-96</a>
                             </div>
                             <div className="header__number__box">
                                 <a className="phone phone__header address__img" href="tel:88512999616">Астраханская 51и/1</a>
-                                <a className="phone phone__header" href="tel:88512999616">+7 (8512) 75‒87‒58 </a>
+                                <a className="phone phone__header" href="tel:88512999616">758-758 </a>
                             </div>
                             <div className="header__info">
                                 <ul className="social">
@@ -56,22 +56,22 @@ class Header extends React.Component {
                         <nav className="header__navigation">
                             <ul className="navigation">
                                 <li className="navigation__item">
-                                    <a className="navigation__link" data-link='#about' href='/'>О кафе</a>
+                                    <a href="/" className="navigation__link" data-link='#about' >О кафе</a>
                                 </li>
                                 <li className="navigation__item">
-                                    <a href="/menuOutSide" className="navigation__link" data-link='#menu-out-side'>Меню на вынос доставка</a>
+                                    <Link to="/menu-out-side" className="navigation__link" data-link='#menu-out-side'>Меню на вынос доставка</Link>
                                 </li>
                                 <li className="navigation__item">
-                                    <a href="/menu" className="navigation__link" data-link='#menu'>Меню</a>
+                                    <Link to="/menu" className="navigation__link" data-link='#menu'>Меню</Link>
                                 </li>
                                 <li className="navigation__item">
-                                    <a href='/stoks' className="navigation__link" data-link='#stoks'>Акции</a>
+                                    <Link to='/stoks' className="navigation__link" data-link='#stoks'>Акции</Link>
                                 </li>
                                 <li className="navigation__item">
-                                    <a href="/delevery" className="navigation__link" data-link='#delivery'>Условия доставки</a>
+                                    <Link to="/delevery" className="navigation__link" data-link='#delivery'>Условия доставки</Link>
                                 </li>
                                 <li className="navigation__item">
-                                    <a href="/main-gallery" className="navigation__link" data-link='#gallery'>Галерея</a>
+                                    <Link to="/main-gallery" className="navigation__link" data-link='#gallery'>Галерея</Link>
                                 </li>
                                 <li className="navigation__item">
                                     <a className="navigation__link" href="/map" data-link='#map'>Контакты</a>

@@ -33,7 +33,7 @@ ReactDOM.render(
                     <Route path='/map' component={Map}/>
                     <Route path='/about-cafe' component={AboutCafe}/>
                     <Route path='/delevery' component={DeliveryWindow}/>
-                    <Route path='/menuOutSide' component={MenuOutSide}/>
+                    <Route path='/menu-out-side' component={MenuOutSide}/>
                     <Route path='/basket-menu' component={MainBasket}/>
                 </Switch> 
             </App>

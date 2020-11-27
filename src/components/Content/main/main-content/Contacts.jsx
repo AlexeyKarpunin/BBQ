@@ -10,17 +10,17 @@ class Contacts extends React.Component {
                         <ul className="contacts__list">
                             <li className="contacts__item">
                                 <p className="contacts__address">Куликова, 50в</p>
-                                <a className="contacts__phone phone__img" href="tel:89275555828">+7‒927‒5‒555‒828</a> <br></br>
-                                <a className="contacts__phone" href="tel:88512773077">+7 (8512) 77‒30‒77</a>
+                                <a className="contacts__phone phone__img" href="tel:89275555828">77-30-77</a> <br></br>
+                               
                             </li>
                             <li className="contacts__item">
                                 <p className="contacts__address">Татищева, 43а</p>
-                                <a className="contacts__phone phone__img" href="tel:89275699696">+7‒927‒569‒96‒96</a> <br></br>
-                                <a className="contacts__phone" href="tel:88512999696">+7 (8512) 99‒96‒96</a>
+                                <a className="contacts__phone phone__img" href="tel:89275699696">99-96-96</a> <br></br>
+                              
                             </li>
                             <li className="contacts__item">
-                                <p className="contacts__address">Астраханская 51и/1</p>
-                                <a className="contacts__phone phone__img" href="tel:89512758758">+7 (8512) 75‒87‒58</a>
+                                <p className="contacts__address">с. Осыпной Бугор Астраханская 51и/1</p>
+                                <a className="contacts__phone phone__img" href="tel:89512758758">758-758</a>
                             </li>
                         </ul>
                         <div className="contacts__social">

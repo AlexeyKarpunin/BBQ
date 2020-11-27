@@ -2,10 +2,19 @@ import React from 'react';
 import BasketMenu from './BasketMenu.jsx';
 import PropTypes from 'prop-types';
 
+const way = {
+    delivery: 'delivery',
+    youSelf: 'youself',
+};
+
 class OrderMenu extends React.Component {
     constructor (props) {
         super(props);
+        this.state = {
+            delivery: way.youSelf,
+        };
         this.doOrder = this.doOrder.bind(this);
+        this.chooseDeliveryWay = this.chooseDeliveryWay.bind(this);
     }
 
     componentDidMount() {
@@ -93,7 +102,26 @@ class OrderMenu extends React.Component {
         orderClick();
       
     }
+
+    chooseDeliveryWay (e) {
+        const {delivery} = this.state;
+        const target = e.target.getAttribute('id');
+        if (target) {
+            switch (target) {
+            case 'delivery-btn':
+                this.setState({delivery: way.delivery});
+                break;
+            case 'your-self-btn':
+                this.setState({delivery: way.youSelf});
+                break;
+            default:
+                break;
+            }
+        }
+    }
+
     render () {
+        const {delivery} = this.state;
         return (
             <section className="main-basket__section">
                 <div className="main-basket__container">
@@ -109,7 +137,7 @@ class OrderMenu extends React.Component {
                         <input id="number" className="main-basket__input__text" type='text'placeholder="+7____-____-___-___" maxLength='12'></input>
                     </div>
 
-                    <div className="main-basket__info__item">
+                    <div onClick={this.chooseDeliveryWay} className="main-basket__info__item">
                         <span>Как вы хотите получить заказ ?</span><br></br>
                         <div className="radio">
                             <input className="radio__input" name='delivery' type='radio' id="delivery-btn"></input>
@@ -119,6 +147,15 @@ class OrderMenu extends React.Component {
                             <input className="radio__input" name='delivery' type='radio' id="your-self-btn" defaultChecked></input>
                             <label className="radio__label" htmlFor="your-self-btn">Самовывоз</label>
                         </div>
+                    </div>
+
+                    <div className="main-basket__info__item select__cafe">
+                        <span>С какого кафе вы  хотите сделать заказ ?</span><br></br>
+                        <select className="main-basket__input__text">
+                            <option>Куликова, 50в</option>
+                            <option>Татищева, 43а</option>
+                            <option>Астраханская 51и/1</option>
+                        </select>
                     </div>
 
                     <div className="main-basket__info__item adress__item">
@@ -131,10 +168,10 @@ class OrderMenu extends React.Component {
                             <input className="radio__input" name='pay' type='radio' id="cash"></input>
                             <label className="radio__label" htmlFor="cash">Наличные</label>
                         </div>
-                        <div className="radio">
+                        { delivery === way.delivery ? null : <div className="radio">
                             <input className="radio__input" name='pay' type='radio' id="card" defaultChecked></input>
                             <label className="radio__label" htmlFor="card">Карта</label>
-                        </div>
+                        </div> }
                     </div>
                     <div className="main-basket__info__item comment__item">
                         <span>Ваш комментарий:</span><br></br>

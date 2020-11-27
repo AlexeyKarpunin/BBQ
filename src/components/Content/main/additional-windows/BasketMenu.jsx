@@ -7,6 +7,7 @@ class BasketMenu extends React.Component {
         this.basketProductPlus = this.basketProductPlus.bind(this);
         this.basketProductMinus = this.basketProductMinus.bind(this);
         this.deleteProduct = this.deleteProduct.bind(this);
+        this.reduser = this.reduser.bind(this);
     }
 
     componentDidMount() {
@@ -15,6 +16,8 @@ class BasketMenu extends React.Component {
     
         header.classList.add('additional__menu__black__ground');
         body.classList.add('additional__menu__container');
+
+        if (!sessionStorage.getItem('myProducts')) sessionStorage.setItem('myProducts', '[]');
     }
 
     componentWillUnmount() {
@@ -67,6 +70,18 @@ class BasketMenu extends React.Component {
         basketLogo.classList.remove('basket--non--active');
         basketMenu.classList.add('basket--non--active');
     }
+
+    reduser () {
+        if (!sessionStorage.getItem('myProducts')) sessionStorage.setItem('myProducts', '[]');
+        
+        const myProducts = JSON.parse(sessionStorage.getItem('myProducts'));
+        
+        return myProducts.reduce((acc, product) => {
+            if (!product) return acc;
+            const num = parseInt(product[4].replace(/\D+/g,''));
+            return num + acc;
+        }, 0);
+    }
     
     render () {
         const myProducts = JSON.parse(sessionStorage.getItem('myProducts'));
@@ -107,10 +122,7 @@ class BasketMenu extends React.Component {
                         <Link to='/basket-menu'><button className="btn basket__btn_push_order">Перейти к заказу</button></Link>
                         <span>Сумма:
                             {
-                                myProducts.reduce((acc, product) => {
-                                    const num = parseInt(product[4].replace(/\D+/g,''));
-                                    return num + acc;
-                                }, 0)
+                                this.reduser()
                             } руб.</span>
                         
                     </div>

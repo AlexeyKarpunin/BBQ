@@ -99,10 +99,8 @@ class Order extends React.Component {
         /* session storage */
         const myProducts = JSON.parse(sessionStorage.getItem('myProducts'));
         const productPrice = orderMenu.querySelector('.order__price');
-        const amount = orderMenu.querySelector('.order__amount');
         myProducts.push([link, name, `Порция: ${dose} ${calculation}  `, count, `${Number(productPrice.innerHTML)} руб.`, Number(price)]);
         sessionStorage.setItem('myProducts', JSON.stringify(myProducts));
-
         /* session storage */
         
         await setTimeout(() => this.changerStyleOnNone(successWindow), 1000);
@@ -128,23 +126,21 @@ class Order extends React.Component {
                     </div>
                     <div ref={this.modalRef} className={uniqueClass}>
                         <div className="order__menu__grid">
-                            <div>
+                            <div className="order__menu__grid__container">
                                 <span className="order__menu__grid__text">Цена:</span>
+                                <div onClick={this.orderMinus} className="order__btn_minus"><span ></span></div>
                                 <div className="order__price">
                                     {price}
-                                </div>
+                                </div><span className="volute">р</span>
+                                <div onClick={this.orderPlus} className="order__btn_plus"><span></span></div>
                             </div>
-                            <div>
-                                <span className="order__menu__grid__text">Количество {calculation}:</span>
+                            <div className="order__menu__grid__container">
+                                <span className="order__menu__grid__text">Количество: </span>
                                 <div className="order__amount">
                                     {dose}
-                                </div>
+                                </div><span className="calculation">{calculation}</span>
                             </div>
                             <a onClick={this.doOrder} className="menu__btn btn order__button">Добавить</a>
-
-                            <div onClick={this.orderMinus} className="order__btn_minus"><span ></span></div>
-                            
-                            <div onClick={this.orderPlus} className="order__btn_plus"><span></span></div>
 
                             <div onClick={this.closeOrderMenu} className="order__btn_close"><span></span></div>
                             <div className="order__menu_success">
@@ -157,7 +153,6 @@ class Order extends React.Component {
         );
     }
 }
-//{description}
 
 Order.propTypes = {
     link: PropTypes.string,

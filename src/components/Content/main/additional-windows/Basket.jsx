@@ -15,6 +15,7 @@ class Basket extends React.Component {
             () => this.onStorage(),
             1000
         );
+        
     }
     
     componentWillUnmount() {
@@ -46,7 +47,7 @@ class Basket extends React.Component {
         <div className="basket__wrapper">
             <li onClick={this.openMenu} className="social__item basket">
                 <a className="social__link" href="">
-                    <img className="basket__img" style={{'margin-top': '15px',}} src='../../img/basket.png' alt="Корзина"></img>
+                    <img className="basket__img" style={{'marginTop': '15px',}} src='../../img/basket.png' alt="Корзина"></img>
                 </a>
             </li>
             <BasketMenu />

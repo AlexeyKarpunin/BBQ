@@ -33,6 +33,7 @@ class MenuOutSide extends React.Component {
         mobileMenu.addEventListener('swiped-right', this.swipe);
 
         mobileMenu.addEventListener('click', this.click);
+        
     }
 
     componentWillUnmount() {
@@ -95,9 +96,7 @@ class MenuOutSide extends React.Component {
                     <h1 className="additional__menu__navigation__header">Меню на вынос</h1>
                     <ul onClick={changeProductList} className="additional__menu__list__items">
                         <li index='0' className="additional__menu__list_item">Шашлык</li>
-                        <li index='3' className="additional__menu__list_item">Овощи на мангале</li>
-                        <li index='2' className="additional__menu__list_item">Мясные закуски</li>
-                        <li index='1' className="additional__menu__list_item">Овощные закуски</li>
+                        <li index='1' className="additional__menu__list_item">Люля-кебаб</li>
                     </ul>
                 </nav>
                 <Basket />
